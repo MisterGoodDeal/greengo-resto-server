@@ -1,9 +1,10 @@
 import { db } from "../db";
-import { Res, returnCode } from "../utils/returnCodes";
+import { Request, Response } from "express";
+import { returnCode } from "../utils/returnCodes";
 const env = require("dotenv").config();
 
 const route = (app: any) => {
-  app.post("/route", async function (req: any, res: Res) {
+  app.post("/route", async function (req: Request, res: Response) {
     // TODO
   });
 };

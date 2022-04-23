@@ -43,8 +43,3 @@ export const returnCode = {
     },
   },
 };
-
-export interface Res {
-  status: (code: number) => any;
-  json: (json: any) => any;
-}
