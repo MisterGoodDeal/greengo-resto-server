@@ -6,7 +6,10 @@ export const generateToken = (jwtProps: JWTProps): string => {
   const token = jwt.sign(
     {
       id: jwtProps.id,
-      uuid: jwtProps.uuid,
+      firstname: jwtProps.firstname,
+      lastname: jwtProps.lastname,
+      email: jwtProps.email,
+      profile_picture: jwtProps.profile_picture,
     },
     process.env.JWT_SECRET,
     {
