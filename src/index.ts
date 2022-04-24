@@ -21,7 +21,7 @@ app.use((req: Request, res: Response, next: any) => {
 });
 
 app.get("/", function (req: Request, res: Response) {
-  res.status(200).json({ "serial-launcher": { version: process.env.VERSION } });
+  res.status(200).json({ "serial-luncher": { version: process.env.VERSION } });
 });
 
 const routes = getRoutes();
