@@ -6,7 +6,7 @@
   "scripts": {
     "start": "npm run build && node build/index.js -r dotenv/config",
     "start:dev": "nodemon -r dotenv/config",
-    "build": "rm -rf build/ && rimraf ./build && tsc && mv ./build/index.js ./build/le-saint-patrick-api.js"
+    "build": "rm -rf build/ && rimraf ./build && tsc && mv ./build/index.js ./build/serial-launcher-server.js"
   },
   "keywords": [
     "server",
