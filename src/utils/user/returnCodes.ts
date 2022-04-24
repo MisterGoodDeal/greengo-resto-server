@@ -1,6 +1,6 @@
 export const userReturnCode = {
   unknownUser: {
-    code: 400,
+    code: 404,
     payload: {
       title: "unknown_user",
       message:
@@ -12,6 +12,13 @@ export const userReturnCode = {
     payload: {
       title: "user_already_exists",
       message: "User already exists!",
+    },
+  },
+  wrongPassword: {
+    code: 400,
+    payload: {
+      title: "wrong_password",
+      message: "Password missmatch!",
     },
   },
 };
