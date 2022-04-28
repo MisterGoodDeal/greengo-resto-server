@@ -4,9 +4,9 @@ import { User } from "../utils/user/interfaces";
 import { userReturnCode } from "../utils/user/returnCodes";
 import { returnCode } from "../utils/returnCodes";
 import { generateToken } from "../utils/jwt";
-import { ImgurAPIResponse, MySQLResponse } from "../utils/interfaces";
+import { MySQLResponse } from "../utils/interfaces";
 import { pwdUtils } from "../utils/password";
-import { ImgurClient } from "imgur";
+import { images } from "../helpers/images.helpers";
 
 const env = require("dotenv").config();
 
@@ -159,7 +159,7 @@ const enrollment = (app: any) => {
     oauth_service_id: string | null
   ) => {
     const hashedPassword = await pwdUtils.hash(password);
-    const imgurImage = await uploadImage(profile_picture);
+    const imgurImage = await images.upload(profile_picture);
     const userOAuth: MySQLResponse = await db.queryParams(
       "INSERT INTO Users (firstname, lastname, email, password, profile_picture, oauth_service, oauth_service_id, token) VALUES (?, ?, ?, ?, ?, ?, ?, '')",
       [
@@ -191,20 +191,6 @@ const enrollment = (app: any) => {
       [userOAuth.insertId]
     );
     return users[0];
-  };
-
-  const uploadImage = async (image: string) => {
-    // https://www.npmjs.com/package/imgur
-    const client = new ImgurClient({ clientId: process.env.IMGUR_CLIENT_ID });
-
-    // @ts-ignore
-    const response: ImgurAPIResponse = await client.upload({
-      image: image.replace(/^data:image\/[a-z]+;base64,/, ""),
-      type: "base64",
-    });
-
-    console.log(response.data.link);
-    return response;
   };
 };
 
