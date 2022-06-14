@@ -8,5 +8,20 @@ export interface Place {
   price_range: number;
   can_bring_reusable_content: boolean;
   image: string;
+  url: string | null;
   fk_lunch_group: number;
+}
+
+export interface Comment {
+  id: number;
+  comment: string;
+  fk_user: number;
+  fk_lunch_place: number;
+  created_at: string;
+}
+
+export interface Favorite {
+  id: number;
+  fk_user: number;
+  fk_lunch_place: number;
 }
