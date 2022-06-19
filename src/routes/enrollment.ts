@@ -21,7 +21,7 @@ const enrollment = (app: any) => {
       oauth_service,
       oauth_service_id,
     } = req.body;
-    if (!firstname || !lastname || !email || !password || !profile_picture) {
+    if (!firstname || !lastname || !email || !password) {
       res
         .status(returnCode.missingParameters.code)
         .json(returnCode.missingParameters.payload);
@@ -65,7 +65,12 @@ const enrollment = (app: any) => {
           null,
           null
         );
-        res.status(200).json(user);
+        // Fetch the user from the database
+        const userFetched: User[] = await db.queryParams(
+          "SELECT * FROM Users WHERE id = ?",
+          [user.id]
+        );
+        res.status(200).json(userFetched[0]);
       }
     }
   });
@@ -94,12 +99,14 @@ const enrollment = (app: any) => {
             lastname: user[0].lastname,
             profile_picture: user[0].profile_picture,
           });
-          // Update token
-          await db.queryParams("UPDATE Users SET token = ? WHERE id = ?", [
-            token,
-            user[0].id,
-          ]);
+          // Update token and date
+          const lastLoginDate = new Date();
+          await db.queryParams(
+            "UPDATE Users SET token = ?, updated_at = ? WHERE id = ?",
+            [token, lastLoginDate, user[0].id]
+          );
           user[0].token = token;
+          user[0].updated_at = lastLoginDate;
           user[0].password = "redacted";
           res.status(200).json(user[0]);
         } else {
@@ -159,7 +166,9 @@ const enrollment = (app: any) => {
     oauth_service_id: string | null
   ) => {
     const hashedPassword = await pwdUtils.hash(password);
-    const imgurImage = await images.upload(profile_picture);
+    const imgurImage = profile_picture
+      ? await images.upload(profile_picture)
+      : { data: { link: "" } };
     const userOAuth: MySQLResponse = await db.queryParams(
       "INSERT INTO Users (firstname, lastname, email, password, profile_picture, oauth_service, oauth_service_id, token) VALUES (?, ?, ?, ?, ?, ?, ?, '')",
       [
