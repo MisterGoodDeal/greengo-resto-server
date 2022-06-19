@@ -44,8 +44,23 @@ const groups = (app: any) => {
             .status(groupReturnCode.notInGroup.code)
             .json(groupReturnCode.notInGroup.payload);
         } else {
+          // Get the owner of the group
+          const owner: User[] = await db.queryParams(
+            "SELECT * FROM Users WHERE id = ?",
+            [group[0].fk_user]
+          );
           const finalGroup: GroupInfo = {
-            group: group[0],
+            group: {
+              id: group[0].id,
+              name: group[0].name,
+              image: group[0].image,
+              group_key: group[0].group_key,
+              creator: {
+                firstname: owner[0].firstname,
+                lastname: owner[0].lastname,
+                profile_picture: owner[0].profile_picture,
+              },
+            },
             users: [],
             last_places: [],
           };
@@ -65,19 +80,32 @@ const groups = (app: any) => {
 
           // Get 5 last places from the group
           const places: Place[] = await db.queryParams(
-            "SELECT * FROM LunchPlaces WHERE id IN (SELECT id FROM LunchPlaces WHERE fk_lunch_group = ?) ORDER BY created_at DESC LIMIT 5",
+            "SELECT * FROM LunchPlaces WHERE fk_lunch_group = ? ORDER BY created_at DESC LIMIT 5",
             [group_id]
           );
-          places.map((p) => {
-            finalGroup.last_places.push({
-              name: p.name,
-              country_speciality: p.country_speciality,
-              rating: p.rating,
-              price_range: p.price_range,
-              image: p.image,
-              can_bring_reusable_content: p.can_bring_reusable_content,
-            });
-          });
+          await Promise.all(
+            places.map(async (p) => {
+              // Get the place creator
+              const creator: User[] = await db.queryParams(
+                "SELECT * FROM Users WHERE id = ?",
+                [p.fk_user]
+              );
+              finalGroup.last_places.push({
+                name: p.name,
+                country_speciality: p.country_speciality,
+                rating: p.rating,
+                price_range: p.price_range,
+                image: p.image,
+                can_bring_reusable_content: p.can_bring_reusable_content,
+                creator: {
+                  firstname: creator[0].firstname,
+                  lastname: creator[0].lastname,
+                  profile_picture: creator[0].profile_picture,
+                },
+                created_at: p.created_at,
+              });
+            })
+          );
 
           res.status(200).json(finalGroup);
         }

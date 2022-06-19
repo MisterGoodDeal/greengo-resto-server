@@ -1,3 +1,5 @@
+import { User } from "../user/interfaces";
+
 export interface Group {
   id: number;
   name: string;
@@ -16,7 +18,7 @@ export interface UserGroupAssociation {
 }
 
 export interface GroupInfo {
-  group: Partial<Group>;
+  group: Partial<Group> & { creator: Partial<User> };
   users: {
     firstname: string;
     lastname: string;
@@ -29,5 +31,7 @@ export interface GroupInfo {
     price_range: number;
     image: string;
     can_bring_reusable_content: boolean;
+    creator: Partial<User>;
+    created_at: string;
   }[];
 }

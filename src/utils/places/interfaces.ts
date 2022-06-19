@@ -10,6 +10,8 @@ export interface Place {
   image: string;
   url: string | null;
   fk_lunch_group: number;
+  fk_user: number;
+  created_at: string;
 }
 
 export interface Comment {
