@@ -55,6 +55,7 @@ const groups = (app: any) => {
           image: group[0].image,
           group_key: group[0].group_key,
           creator: {
+            id: owner[0].id,
             firstname: owner[0].firstname,
             lastname: owner[0].lastname,
             profile_picture: owner[0].profile_picture,
@@ -98,6 +99,7 @@ const groups = (app: any) => {
             image: p.image,
             can_bring_reusable_contents: p.can_bring_reusable_contents,
             creator: {
+              id: creator[0].id,
               firstname: creator[0].firstname,
               lastname: creator[0].lastname,
               profile_picture: creator[0].profile_picture,
