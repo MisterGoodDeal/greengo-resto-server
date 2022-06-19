@@ -18,100 +18,105 @@ const env = require("dotenv").config();
 
 const groups = (app: any) => {
   // Get GroupInfo
-  app.get(
-    "/group/info/:group_id",
-    auth,
-    async function (req: Request, res: Response) {
-      // @ts-ignore
-      const user: JWTProps = req.user;
+  app.get("/group/info", auth, async function (req: Request, res: Response) {
+    // @ts-ignore
+    const user: JWTProps = req.user;
+    // Get group from user id
+    const groupAssoc = await db.queryParams(
+      `SELECT * FROM UsersLauchGroupsAssoc WHERE fk_user = ?`,
+      [user.id]
+    );
 
-      const { group_id } = req.params;
-      const group: Group[] = await db.queryParams(
-        "SELECT * FROM LunchGroups WHERE id = ?",
-        [group_id]
+    let groupId;
+    groupAssoc.length === 0
+      ? (groupId = -1)
+      : (groupId = groupAssoc[0].fk_lunch_group);
+
+    // Get the group
+    const group: Group[] = await db.queryParams(
+      `SELECT * FROM LunchGroups WHERE id = ?`,
+      [groupId]
+    );
+
+    if (group.length === 0) {
+      res
+        .status(groupReturnCode.groupNotFound.code)
+        .json(groupReturnCode.groupNotFound.payload);
+    } else {
+      // Get the owner of the group
+      const owner: User[] = await db.queryParams(
+        "SELECT * FROM Users WHERE id = ?",
+        [group[0].fk_user]
       );
-      if (group.length === 0) {
-        res
-          .status(groupReturnCode.groupNotFound.code)
-          .json(groupReturnCode.groupNotFound.payload);
-      } else {
-        const assoc: UserGroupAssociation[] = await db.queryParams(
-          "SELECT * FROM UsersLauchGroupsAssoc WHERE fk_user = ? AND fk_lunch_group = ?",
-          [user.id, group_id]
-        );
-        if (assoc.length === 0) {
-          res
-            .status(groupReturnCode.notInGroup.code)
-            .json(groupReturnCode.notInGroup.payload);
-        } else {
-          // Get the owner of the group
-          const owner: User[] = await db.queryParams(
+      const finalGroup: GroupInfo = {
+        group: {
+          id: group[0].id,
+          name: group[0].name,
+          image: group[0].image,
+          group_key: group[0].group_key,
+          creator: {
+            firstname: owner[0].firstname,
+            lastname: owner[0].lastname,
+            profile_picture: owner[0].profile_picture,
+          },
+        },
+        users: [],
+        last_places: [],
+        random_image: "",
+      };
+
+      // Get all users from the group
+      const users: User[] = await db.queryParams(
+        "SELECT * FROM Users WHERE id IN (SELECT fk_user FROM UsersLauchGroupsAssoc WHERE fk_lunch_group = ?)",
+        [group[0].id]
+      );
+      users.map((u) => {
+        finalGroup.users.push({
+          firstname: u.firstname,
+          lastname: u.lastname,
+          profile_picture: u.profile_picture,
+        });
+      });
+
+      // Get 5 last places from the group
+      const places: Place[] = await db.queryParams(
+        "SELECT * FROM LunchPlaces WHERE fk_lunch_group = ? ORDER BY created_at DESC LIMIT 5",
+        [group[0].id]
+      );
+      await Promise.all(
+        places.map(async (p) => {
+          // Get the place creator
+          const creator: User[] = await db.queryParams(
             "SELECT * FROM Users WHERE id = ?",
-            [group[0].fk_user]
+            [p.fk_user]
           );
-          const finalGroup: GroupInfo = {
-            group: {
-              id: group[0].id,
-              name: group[0].name,
-              image: group[0].image,
-              group_key: group[0].group_key,
-              creator: {
-                firstname: owner[0].firstname,
-                lastname: owner[0].lastname,
-                profile_picture: owner[0].profile_picture,
-              },
+          finalGroup.last_places.push({
+            name: p.name,
+            country_speciality: p.country_speciality,
+            rating: p.rating,
+            price_range: p.price_range,
+            image: p.image,
+            can_bring_reusable_contents: p.can_bring_reusable_contents,
+            creator: {
+              firstname: creator[0].firstname,
+              lastname: creator[0].lastname,
+              profile_picture: creator[0].profile_picture,
             },
-            users: [],
-            last_places: [],
-          };
-
-          // Get all users from the group
-          const users: User[] = await db.queryParams(
-            "SELECT * FROM Users WHERE id IN (SELECT fk_user FROM UsersLauchGroupsAssoc WHERE fk_lunch_group = ?)",
-            [group_id]
-          );
-          users.map((u) => {
-            finalGroup.users.push({
-              firstname: u.firstname,
-              lastname: u.lastname,
-              profile_picture: u.profile_picture,
-            });
+            created_at: p.created_at,
           });
+        })
+      );
 
-          // Get 5 last places from the group
-          const places: Place[] = await db.queryParams(
-            "SELECT * FROM LunchPlaces WHERE fk_lunch_group = ? ORDER BY created_at DESC LIMIT 5",
-            [group_id]
-          );
-          await Promise.all(
-            places.map(async (p) => {
-              // Get the place creator
-              const creator: User[] = await db.queryParams(
-                "SELECT * FROM Users WHERE id = ?",
-                [p.fk_user]
-              );
-              finalGroup.last_places.push({
-                name: p.name,
-                country_speciality: p.country_speciality,
-                rating: p.rating,
-                price_range: p.price_range,
-                image: p.image,
-                can_bring_reusable_content: p.can_bring_reusable_content,
-                creator: {
-                  firstname: creator[0].firstname,
-                  lastname: creator[0].lastname,
-                  profile_picture: creator[0].profile_picture,
-                },
-                created_at: p.created_at,
-              });
-            })
-          );
+      // Get ramdom image of a place
+      const randomPlace: Place[] = await db.queryParams(
+        "SELECT * FROM LunchPlaces WHERE fk_lunch_group = ? ORDER BY RAND() LIMIT 1",
+        [group[0].id]
+      );
+      finalGroup.random_image = randomPlace[0].image;
 
-          res.status(200).json(finalGroup);
-        }
-      }
+      res.status(200).json(finalGroup);
     }
-  );
+  });
 
   // Create a new group
   app.post("/group/create", auth, async function (req: Request, res: Response) {

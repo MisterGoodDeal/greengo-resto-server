@@ -6,7 +6,7 @@ export interface Place {
   lng: number;
   rating: number;
   price_range: number;
-  can_bring_reusable_content: boolean;
+  can_bring_reusable_contents: boolean;
   image: string;
   url: string | null;
   fk_lunch_group: number;
