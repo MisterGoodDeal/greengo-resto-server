@@ -1,0 +1,163 @@
+App 9847 output: HTTP Server running on port 3000
+App 9847 output: (node:9847) UnhandledPromiseRejectionWarning: Error: Cannot find module 'tslib'
+App 9847 output: Require stack:
+App 9847 output: - /home/fuje2936/nodevenv/serial-luncher-api.turtlecorp.fr/14/lib/node_modules/imgur/imgur.node.js
+App 9847 output: - /home/fuje2936/serial-luncher-api.turtlecorp.fr/build/helpers/images.helpers.js
+App 9847 output: - /home/fuje2936/serial-luncher-api.turtlecorp.fr/build/routes/enrollment.js
+App 9847 output: - /home/fuje2936/serial-luncher-api.turtlecorp.fr/build/serial-launcher-server.js
+App 9847 output: - /opt/cpanel/ea-ruby27/root/usr/share/passenger/helper-scripts/node-loader.js
+App 9847 output:     at Function.Module._resolveFilename (internal/modules/cjs/loader.js:902:15)
+App 9847 output:     at Function.Module._load (internal/modules/cjs/loader.js:746:27)
+App 9847 output:     at Module.require (internal/modules/cjs/loader.js:974:19)
+App 9847 output:     at Module.require (/opt/cpanel/ea-ruby27/root/usr/share/passenger/helper-scripts/node-loader.js:80:25)
+App 9847 output:     at require (internal/modules/cjs/helpers.js:93:18)
+App 9847 output:     at /home/fuje2936/nodevenv/serial-luncher-api.turtlecorp.fr/14/lib/node_modules/imgur/imgur.node.js:1:752
+App 9847 output:     at /home/fuje2936/nodevenv/serial-luncher-api.turtlecorp.fr/14/lib/node_modules/imgur/imgur.node.js:1:8298
+App 9847 output:     at /home/fuje2936/nodevenv/serial-luncher-api.turtlecorp.fr/14/lib/node_modules/imgur/imgur.node.js:1:84
+App 9847 output:     at Object.<anonymous> (/home/fuje2936/nodevenv/serial-luncher-api.turtlecorp.fr/14/lib/node_modules/imgur/imgur.node.js:1:223)
+App 9847 output:     at Module._compile (internal/modules/cjs/loader.js:1085:14)
+App 9847 output: (Use `node --trace-warnings ...` to show where the warning was created)
+App 9847 output: (node:9847) UnhandledPromiseRejectionWarning: Unhandled promise rejection. This error originated either by throwing inside of an async function without a catch block, or by rejecting a promise which was not handled with .catch(). To terminate the node process on unhandled promise rejection, use the CLI flag `--unhandled-rejections=strict` (see https://nodejs.org/api/cli.html#cli_unhandled_rejections_mode). (rejection id: 1)
+App 9847 output: (node:9847) [DEP0018] DeprecationWarning: Unhandled promise rejections are deprecated. In the future, promise rejections that are not handled will terminate the Node.js process with a non-zero exit code.
+App 9847 output: (node:9847) UnhandledPromiseRejectionWarning: Error: Cannot find module 'tslib'
+App 9847 output: Require stack:
+App 9847 output: - /home/fuje2936/nodevenv/serial-luncher-api.turtlecorp.fr/14/lib/node_modules/imgur/imgur.node.js
+App 9847 output: - /home/fuje2936/serial-luncher-api.turtlecorp.fr/build/helpers/images.helpers.js
+App 9847 output: - /home/fuje2936/serial-luncher-api.turtlecorp.fr/build/routes/groups.js
+App 9847 output: - /home/fuje2936/serial-luncher-api.turtlecorp.fr/build/serial-launcher-server.js
+App 9847 output: - /opt/cpanel/ea-ruby27/root/usr/share/passenger/helper-scripts/node-loader.js
+App 9847 output:     at Function.Module._resolveFilename (internal/modules/cjs/loader.js:902:15)
+App 9847 output:     at Function.Module._load (internal/modules/cjs/loader.js:746:27)
+App 9847 output:     at Module.require (internal/modules/cjs/loader.js:974:19)
+App 9847 output:     at Module.require (/opt/cpanel/ea-ruby27/root/usr/share/passenger/helper-scripts/node-loader.js:80:25)
+App 9847 output:     at require (internal/modules/cjs/helpers.js:93:18)
+App 9847 output:     at /home/fuje2936/nodevenv/serial-luncher-api.turtlecorp.fr/14/lib/node_modules/imgur/imgur.node.js:1:752
+App 9847 output:     at /home/fuje2936/nodevenv/serial-luncher-api.turtlecorp.fr/14/lib/node_modules/imgur/imgur.node.js:1:8298
+App 9847 output:     at /home/fuje2936/nodevenv/serial-luncher-api.turtlecorp.fr/14/lib/node_modules/imgur/imgur.node.js:1:84
+App 9847 output:     at Object.<anonymous> (/home/fuje2936/nodevenv/serial-luncher-api.turtlecorp.fr/14/lib/node_modules/imgur/imgur.node.js:1:223)
+App 9847 output:     at Module._compile (internal/modules/cjs/loader.js:1085:14)
+App 9847 output: (node:9847) UnhandledPromiseRejectionWarning: Unhandled promise rejection. This error originated either by throwing inside of an async function without a catch block, or by rejecting a promise which was not handled with .catch(). To terminate the node process on unhandled promise rejection, use the CLI flag `--unhandled-rejections=strict` (see https://nodejs.org/api/cli.html#cli_unhandled_rejections_mode). (rejection id: 2)
+App 9847 output: (node:9847) UnhandledPromiseRejectionWarning: Error: Cannot find module 'tslib'
+App 9847 output: Require stack:
+App 9847 output: - /home/fuje2936/nodevenv/serial-luncher-api.turtlecorp.fr/14/lib/node_modules/imgur/imgur.node.js
+App 9847 output: - /home/fuje2936/serial-luncher-api.turtlecorp.fr/build/helpers/images.helpers.js
+App 9847 output: - /home/fuje2936/serial-luncher-api.turtlecorp.fr/build/routes/places.js
+App 9847 output: - /home/fuje2936/serial-luncher-api.turtlecorp.fr/build/serial-launcher-server.js
+App 9847 output: - /opt/cpanel/ea-ruby27/root/usr/share/passenger/helper-scripts/node-loader.js
+App 9847 output:     at Function.Module._resolveFilename (internal/modules/cjs/loader.js:902:15)
+App 9847 output:     at Function.Module._load (internal/modules/cjs/loader.js:746:27)
+App 9847 output:     at Module.require (internal/modules/cjs/loader.js:974:19)
+App 9847 output:     at Module.require (/opt/cpanel/ea-ruby27/root/usr/share/passenger/helper-scripts/node-loader.js:80:25)
+App 9847 output:     at require (internal/modules/cjs/helpers.js:93:18)
+App 9847 output:     at /home/fuje2936/nodevenv/serial-luncher-api.turtlecorp.fr/14/lib/node_modules/imgur/imgur.node.js:1:752
+App 9847 output:     at /home/fuje2936/nodevenv/serial-luncher-api.turtlecorp.fr/14/lib/node_modules/imgur/imgur.node.js:1:8298
+App 9847 output:     at /home/fuje2936/nodevenv/serial-luncher-api.turtlecorp.fr/14/lib/node_modules/imgur/imgur.node.js:1:84
+App 9847 output:     at Object.<anonymous> (/home/fuje2936/nodevenv/serial-luncher-api.turtlecorp.fr/14/lib/node_modules/imgur/imgur.node.js:1:223)
+App 9847 output:     at Module._compile (internal/modules/cjs/loader.js:1085:14)
+App 9847 output: (node:9847) UnhandledPromiseRejectionWarning: Unhandled promise rejection. This error originated either by throwing inside of an async function without a catch block, or by rejecting a promise which was not handled with .catch(). To terminate the node process on unhandled promise rejection, use the CLI flag `--unhandled-rejections=strict` (see https://nodejs.org/api/cli.html#cli_unhandled_rejections_mode). (rejection id: 3)
+App 23316 output: HTTP Server running on port 3000
+App 23316 output: (node:23316) UnhandledPromiseRejectionWarning: Error: Cannot find module 'tslib'
+App 23316 output: Require stack:
+App 23316 output: - /home/fuje2936/nodevenv/serial-luncher-api.turtlecorp.fr/14/lib/node_modules/imgur/imgur.node.js
+App 23316 output: - /home/fuje2936/serial-luncher-api.turtlecorp.fr/build/helpers/images.helpers.js
+App 23316 output: - /home/fuje2936/serial-luncher-api.turtlecorp.fr/build/routes/enrollment.js
+App 23316 output: - /home/fuje2936/serial-luncher-api.turtlecorp.fr/build/serial-launcher-server.js
+App 23316 output: - /opt/cpanel/ea-ruby27/root/usr/share/passenger/helper-scripts/node-loader.js
+App 23316 output:     at Function.Module._resolveFilename (internal/modules/cjs/loader.js:902:15)
+App 23316 output:     at Function.Module._load (internal/modules/cjs/loader.js:746:27)
+App 23316 output:     at Module.require (internal/modules/cjs/loader.js:974:19)
+App 23316 output:     at Module.require (/opt/cpanel/ea-ruby27/root/usr/share/passenger/helper-scripts/node-loader.js:80:25)
+App 23316 output:     at require (internal/modules/cjs/helpers.js:93:18)
+App 23316 output:     at /home/fuje2936/nodevenv/serial-luncher-api.turtlecorp.fr/14/lib/node_modules/imgur/imgur.node.js:1:752
+App 23316 output:     at /home/fuje2936/nodevenv/serial-luncher-api.turtlecorp.fr/14/lib/node_modules/imgur/imgur.node.js:1:8298
+App 23316 output:     at /home/fuje2936/nodevenv/serial-luncher-api.turtlecorp.fr/14/lib/node_modules/imgur/imgur.node.js:1:84
+App 23316 output:     at Object.<anonymous> (/home/fuje2936/nodevenv/serial-luncher-api.turtlecorp.fr/14/lib/node_modules/imgur/imgur.node.js:1:223)
+App 23316 output:     at Module._compile (internal/modules/cjs/loader.js:1085:14)
+App 23316 output: (Use `node --trace-warnings ...` to show where the warning was created)
+App 23316 output: (node:23316) UnhandledPromiseRejectionWarning: Unhandled promise rejection. This error originated either by throwing inside of an async function without a catch block, or by rejecting a promise which was not handled with .catch(). To terminate the node process on unhandled promise rejection, use the CLI flag `--unhandled-rejections=strict` (see https://nodejs.org/api/cli.html#cli_unhandled_rejections_mode). (rejection id: 1)
+App 23316 output: (node:23316) [DEP0018] DeprecationWarning: Unhandled promise rejections are deprecated. In the future, promise rejections that are not handled will terminate the Node.js process with a non-zero exit code.
+App 23316 output: (node:23316) UnhandledPromiseRejectionWarning: Error: Cannot find module 'tslib'
+App 23316 output: Require stack:
+App 23316 output: - /home/fuje2936/nodevenv/serial-luncher-api.turtlecorp.fr/14/lib/node_modules/imgur/imgur.node.js
+App 23316 output: - /home/fuje2936/serial-luncher-api.turtlecorp.fr/build/helpers/images.helpers.js
+App 23316 output: - /home/fuje2936/serial-luncher-api.turtlecorp.fr/build/routes/groups.js
+App 23316 output: - /home/fuje2936/serial-luncher-api.turtlecorp.fr/build/serial-launcher-server.js
+App 23316 output: - /opt/cpanel/ea-ruby27/root/usr/share/passenger/helper-scripts/node-loader.js
+App 23316 output:     at Function.Module._resolveFilename (internal/modules/cjs/loader.js:902:15)
+App 23316 output:     at Function.Module._load (internal/modules/cjs/loader.js:746:27)
+App 23316 output:     at Module.require (internal/modules/cjs/loader.js:974:19)
+App 23316 output:     at Module.require (/opt/cpanel/ea-ruby27/root/usr/share/passenger/helper-scripts/node-loader.js:80:25)
+App 23316 output:     at require (internal/modules/cjs/helpers.js:93:18)
+App 23316 output:     at /home/fuje2936/nodevenv/serial-luncher-api.turtlecorp.fr/14/lib/node_modules/imgur/imgur.node.js:1:752
+App 23316 output:     at /home/fuje2936/nodevenv/serial-luncher-api.turtlecorp.fr/14/lib/node_modules/imgur/imgur.node.js:1:8298
+App 23316 output:     at /home/fuje2936/nodevenv/serial-luncher-api.turtlecorp.fr/14/lib/node_modules/imgur/imgur.node.js:1:84
+App 23316 output:     at Object.<anonymous> (/home/fuje2936/nodevenv/serial-luncher-api.turtlecorp.fr/14/lib/node_modules/imgur/imgur.node.js:1:223)
+App 23316 output:     at Module._compile (internal/modules/cjs/loader.js:1085:14)
+App 23316 output: (node:23316) UnhandledPromiseRejectionWarning: Unhandled promise rejection. This error originated either by throwing inside of an async function without a catch block, or by rejecting a promise which was not handled with .catch(). To terminate the node process on unhandled promise rejection, use the CLI flag `--unhandled-rejections=strict` (see https://nodejs.org/api/cli.html#cli_unhandled_rejections_mode). (rejection id: 2)
+App 23316 output: (node:23316) UnhandledPromiseRejectionWarning: Error: Cannot find module 'tslib'
+App 23316 output: Require stack:
+App 23316 output: - /home/fuje2936/nodevenv/serial-luncher-api.turtlecorp.fr/14/lib/node_modules/imgur/imgur.node.js
+App 23316 output: - /home/fuje2936/serial-luncher-api.turtlecorp.fr/build/helpers/images.helpers.js
+App 23316 output: - /home/fuje2936/serial-luncher-api.turtlecorp.fr/build/routes/places.js
+App 23316 output: - /home/fuje2936/serial-luncher-api.turtlecorp.fr/build/serial-launcher-server.js
+App 23316 output: - /opt/cpanel/ea-ruby27/root/usr/share/passenger/helper-scripts/node-loader.js
+App 23316 output:     at Function.Module._resolveFilename (internal/modules/cjs/loader.js:902:15)
+App 23316 output:     at Function.Module._load (internal/modules/cjs/loader.js:746:27)
+App 23316 output:     at Module.require (internal/modules/cjs/loader.js:974:19)
+App 23316 output:     at Module.require (/opt/cpanel/ea-ruby27/root/usr/share/passenger/helper-scripts/node-loader.js:80:25)
+App 23316 output:     at require (internal/modules/cjs/helpers.js:93:18)
+App 23316 output:     at /home/fuje2936/nodevenv/serial-luncher-api.turtlecorp.fr/14/lib/node_modules/imgur/imgur.node.js:1:752
+App 23316 output:     at /home/fuje2936/nodevenv/serial-luncher-api.turtlecorp.fr/14/lib/node_modules/imgur/imgur.node.js:1:8298
+App 23316 output:     at /home/fuje2936/nodevenv/serial-luncher-api.turtlecorp.fr/14/lib/node_modules/imgur/imgur.node.js:1:84
+App 23316 output:     at Object.<anonymous> (/home/fuje2936/nodevenv/serial-luncher-api.turtlecorp.fr/14/lib/node_modules/imgur/imgur.node.js:1:223)
+App 23316 output:     at Module._compile (internal/modules/cjs/loader.js:1085:14)
+App 23316 output: (node:23316) UnhandledPromiseRejectionWarning: Unhandled promise rejection. This error originated either by throwing inside of an async function without a catch block, or by rejecting a promise which was not handled with .catch(). To terminate the node process on unhandled promise rejection, use the CLI flag `--unhandled-rejections=strict` (see https://nodejs.org/api/cli.html#cli_unhandled_rejections_mode). (rejection id: 3)
+App 25229 output: HTTP Server running on port 3000
+App 25804 output: HTTP Server running on port 3000
+App 21429 output: HTTP Server running on port 3000
+App 740 output: internal/modules/cjs/loader.js:905
+App 740 output:   throw err;
+App 740 output:   ^
+App 740 output: Error: Cannot find module 'serve-favicon'
+App 740 output: Require stack:
+App 740 output: - /home/fuje2936/serial-luncher-api.turtlecorp.fr/build/serial-launcher-server.js
+App 740 output: - /opt/cpanel/ea-ruby27/root/usr/share/passenger/helper-scripts/node-loader.js
+App 740 output:     at Function.Module._resolveFilename (internal/modules/cjs/loader.js:902:15)
+App 740 output:     at Function.Module._load (internal/modules/cjs/loader.js:746:27)
+App 740 output:     at Module.require (internal/modules/cjs/loader.js:974:19)
+App 740 output:     at Module.require (/opt/cpanel/ea-ruby27/root/usr/share/passenger/helper-scripts/node-loader.js:80:25)
+App 740 output:     at require (internal/modules/cjs/helpers.js:93:18)
+App 740 output:     at Object.<anonymous> (/home/fuje2936/serial-luncher-api.turtlecorp.fr/build/serial-launcher-server.js:32:15)
+App 740 output:     at Module._compile (internal/modules/cjs/loader.js:1085:14)
+App 740 output:     at Object.Module._extensions..js (internal/modules/cjs/loader.js:1114:10)
+App 740 output:     at Module.load (internal/modules/cjs/loader.js:950:32)
+App 740 output:     at Function.Module._load (internal/modules/cjs/loader.js:790:12) {
+App 740 output:   code: 'MODULE_NOT_FOUND',
+App 740 output:   requireStack: [
+App 740 output:     '/home/fuje2936/serial-luncher-api.turtlecorp.fr/build/serial-launcher-server.js',
+App 740 output:     '/opt/cpanel/ea-ruby27/root/usr/share/passenger/helper-scripts/node-loader.js'
+App 740 output:   ]
+App 740 output: }
+App 933 output: internal/modules/cjs/loader.js:905
+App 933 output:   throw err;
+App 933 output:   ^
+App 933 output: Error: Cannot find module 'serve-favicon'
+App 933 output: Require stack:
+App 933 output: - /home/fuje2936/serial-luncher-api.turtlecorp.fr/build/serial-launcher-server.js
+App 933 output: - /opt/cpanel/ea-ruby27/root/usr/share/passenger/helper-scripts/node-loader.js
+App 933 output:     at Function.Module._resolveFilename (internal/modules/cjs/loader.js:902:15)
+App 933 output:     at Function.Module._load (internal/modules/cjs/loader.js:746:27)
+App 933 output:     at Module.require (internal/modules/cjs/loader.js:974:19)
+App 933 output:     at Module.require (/opt/cpanel/ea-ruby27/root/usr/share/passenger/helper-scripts/node-loader.js:80:25)
+App 933 output:     at require (internal/modules/cjs/helpers.js:93:18)
+App 933 output:     at Object.<anonymous> (/home/fuje2936/serial-luncher-api.turtlecorp.fr/build/serial-launcher-server.js:32:15)
+App 933 output:     at Module._compile (internal/modules/cjs/loader.js:1085:14)
+App 933 output:     at Object.Module._extensions..js (internal/modules/cjs/loader.js:1114:10)
+App 933 output:     at Module.load (internal/modules/cjs/loader.js:950:32)
+App 933 output:     at Function.Module._load (internal/modules/cjs/loader.js:790:12) {
+App 933 output:   code: 'MODULE_NOT_FOUND',
+App 933 output:   requireStack: [
+App 933 output:     '/home/fuje2936/serial-luncher-api.turtlecorp.fr/build/serial-launcher-server.js',
+App 933 output:     '/opt/cpanel/ea-ruby27/root/usr/share/passenger/helper-scripts/node-loader.js'
+App 933 output:   ]
+App 933 output: }
