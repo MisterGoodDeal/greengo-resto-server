@@ -14,7 +14,7 @@ export interface Group {
 export interface UserGroupAssociation {
   id: number;
   fk_user: number;
-  fk_group: number;
+  fk_lunch_group: number;
 }
 
 export interface GroupInfo {

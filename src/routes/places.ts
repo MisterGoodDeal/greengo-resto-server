@@ -2,12 +2,18 @@ import { Request, Response } from "express";
 import { db } from "../db";
 import { images } from "../helpers/images.helpers";
 import { auth } from "../middleware/auth";
-import { Group } from "../utils/groups/interfaces";
+import { Group, UserGroupAssociation } from "../utils/groups/interfaces";
 import { groupReturnCode } from "../utils/groups/returnCodes";
 import { MySQLResponse, JWTProps } from "../utils/interfaces";
-import { Comment, Favorite, Place } from "../utils/places/interfaces";
+import {
+  Comment,
+  Favorite,
+  Place,
+  StuffedPlace,
+} from "../utils/places/interfaces";
 import { placesReturnCode } from "../utils/places/returnCodes";
 import { returnCode } from "../utils/returnCodes";
+import { User } from "../utils/user/interfaces";
 
 const places = (app: any) => {
   // Create place
@@ -15,7 +21,6 @@ const places = (app: any) => {
     // @ts-ignore
     const user: JWTProps = req.user;
     const {
-      group_key,
       country_speciality,
       lat,
       lng,
@@ -27,7 +32,6 @@ const places = (app: any) => {
       url,
     } = req.body;
     if (
-      !group_key ||
       !country_speciality ||
       !lat ||
       !lng ||
@@ -41,10 +45,17 @@ const places = (app: any) => {
         body: req.body,
       });
     } else {
+      // Get the group from the user
+      const groupAssoc: UserGroupAssociation[] = await db.queryParams(
+        `SELECT * FROM UsersLauchGroupsAssoc WHERE fk_user = ?`,
+        [user.id]
+      );
+      groupAssoc.length === 0 ? (groupAssoc[0].fk_lunch_group = -1) : null;
+
       // Check if the group exists
       const group: Group[] = await db.queryParams(
-        "SELECT * FROM LunchGroups WHERE group_key = ?",
-        [group_key]
+        "SELECT * FROM LunchGroups WHERE id = ?",
+        [groupAssoc[0].fk_lunch_group]
       );
       if (group.length === 0) {
         res
@@ -87,30 +98,66 @@ const places = (app: any) => {
   });
 
   // Get all places from a group
-  app.get(
-    "/place/:group_key",
-    auth,
-    async function (req: Request, res: Response) {
-      // @ts-ignore
-      const user: JWTProps = req.user;
-      const { group_key } = req.params;
-      const group: Group[] = await db.queryParams(
-        "SELECT * FROM LunchGroups WHERE group_key = ?",
-        [group_key]
+  app.get("/places/all", auth, async function (req: Request, res: Response) {
+    // @ts-ignore
+    const user: JWTProps = req.user;
+
+    const groupAssoc: UserGroupAssociation[] = await db.queryParams(
+      "SELECT * FROM UsersLauchGroupsAssoc WHERE fk_user = ?",
+      [user.id]
+    );
+
+    const group: Group[] = await db.queryParams(
+      "SELECT * FROM LunchGroups WHERE id = ?",
+      [groupAssoc[0].fk_lunch_group]
+    );
+
+    if (group.length === 0) {
+      res
+        .status(groupReturnCode.groupNotFound.code)
+        .json(groupReturnCode.groupNotFound.payload);
+    } else {
+      const places: Place[] = await db.queryParams(
+        "SELECT * FROM LunchPlaces WHERE fk_lunch_group = ?",
+        [group[0].id]
       );
-      if (group.length === 0) {
-        res
-          .status(groupReturnCode.groupNotFound.code)
-          .json(groupReturnCode.groupNotFound.payload);
-      } else {
-        const places: Place[] = await db.queryParams(
-          "SELECT * FROM LunchPlaces WHERE fk_lunch_group = ?",
-          [group[0].id]
-        );
-        res.status(200).json(places);
-      }
+      const stuffedPlaces: StuffedPlace[] = [];
+      Promise.all(
+        places.map(async (place: Place) => {
+          const comments: Comment[] = await db.queryParams(
+            "SELECT * FROM LunchPlacesComments WHERE fk_lunch_place = ?",
+            [place.id]
+          );
+          const partialComments: Partial<Comment> & Partial<User>[] = [];
+          await Promise.all(
+            comments.map(async (comment: Comment) => {
+              const user: User[] = await db.queryParams(
+                "SELECT * FROM Users WHERE id = ?",
+                [comment.fk_user]
+              );
+              const partialComment = {
+                id: comment.id,
+                comment: comment.comment,
+                created_at: new Date(comment.created_at),
+                firstname: user[0].firstname,
+                lastname: user[0].lastname,
+                profile_picture: user[0].profile_picture,
+              };
+              partialComments.push(partialComment);
+            })
+          ).then(() => {
+            const stuffedPlace: StuffedPlace = {
+              ...place,
+              comments: partialComments,
+            };
+            stuffedPlaces.push(stuffedPlace);
+          });
+        })
+      ).then(() => {
+        res.status(200).json(stuffedPlaces);
+      });
     }
-  );
+  });
 
   // Delete place
   app.delete("/place/:id", auth, async function (req: Request, res: Response) {

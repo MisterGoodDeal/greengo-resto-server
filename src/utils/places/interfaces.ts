@@ -1,3 +1,5 @@
+import { User } from "../user/interfaces";
+
 export interface Place {
   id: number;
   name: string;
@@ -12,6 +14,10 @@ export interface Place {
   fk_lunch_group: number;
   fk_user: number;
   created_at: string;
+}
+
+export interface StuffedPlace extends Place {
+  comments: Partial<Comment> & Partial<User>[];
 }
 
 export interface Comment {
