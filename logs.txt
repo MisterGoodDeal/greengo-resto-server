@@ -161,3 +161,222 @@ App 933 output:     '/home/fuje2936/serial-luncher-api.turtlecorp.fr/build/seria
 App 933 output:     '/opt/cpanel/ea-ruby27/root/usr/share/passenger/helper-scripts/node-loader.js'
 App 933 output:   ]
 App 933 output: }
+App 27346 output: HTTP Server running on port 3000
+App 27346 output: Config > {
+App 27346 output:   db: {
+App 27346 output:     host: '109.234.164.226',
+App 27346 output:     user: 'fuje2936_sl_user',
+App 27346 output:     password: '48N^29$y*4#&rLSMD$9@',
+App 27346 output:     database: 'fuje2936_serial_luncher'
+App 27346 output:   },
+App 27346 output:   listPerPage: 10
+App 27346 output: }
+App 27346 output: MySQL error >  TypeError: Bind parameters must not contain undefined. To pass SQL NULL specify JS null
+App 27346 output:     at /home/fuje2936/nodevenv/serial-luncher-api.turtlecorp.fr/14/lib/node_modules/mysql2/lib/connection.js:592:17
+App 27346 output:     at Array.forEach (<anonymous>)
+App 27346 output:     at Connection.execute (/home/fuje2936/nodevenv/serial-luncher-api.turtlecorp.fr/14/lib/node_modules/mysql2/lib/connection.js:584:22)
+App 27346 output:     at /home/fuje2936/nodevenv/serial-luncher-api.turtlecorp.fr/14/lib/node_modules/mysql2/promise.js:119:11
+App 27346 output:     at new Promise (<anonymous>)
+App 27346 output:     at PromiseConnection.execute (/home/fuje2936/nodevenv/serial-luncher-api.turtlecorp.fr/14/lib/node_modules/mysql2/promise.js:116:12)
+App 27346 output:     at Object.<anonymous> (/home/fuje2936/serial-luncher-api.turtlecorp.fr/build/db/index.js:77:53)
+App 27346 output:     at step (/home/fuje2936/serial-luncher-api.turtlecorp.fr/build/db/index.js:33:23)
+App 27346 output:     at Object.next (/home/fuje2936/serial-luncher-api.turtlecorp.fr/build/db/index.js:14:53)
+App 27346 output:     at fulfilled (/home/fuje2936/serial-luncher-api.turtlecorp.fr/build/db/index.js:5:58)
+App 27346 output: (node:27346) UnhandledPromiseRejectionWarning: TypeError: Cannot read property 'length' of undefined
+App 27346 output:     at /home/fuje2936/serial-luncher-api.turtlecorp.fr/build/routes/places.js:124:37
+App 27346 output:     at step (/home/fuje2936/serial-luncher-api.turtlecorp.fr/build/routes/places.js:33:23)
+App 27346 output:     at Object.next (/home/fuje2936/serial-luncher-api.turtlecorp.fr/build/routes/places.js:14:53)
+App 27346 output:     at fulfilled (/home/fuje2936/serial-luncher-api.turtlecorp.fr/build/routes/places.js:5:58)
+App 27346 output:     at processTicksAndRejections (internal/process/task_queues.js:95:5)
+App 27346 output: (Use `node --trace-warnings ...` to show where the warning was created)
+App 27346 output: (node:27346) UnhandledPromiseRejectionWarning: Unhandled promise rejection. This error originated either by throwing inside of an async function without a catch block, or by rejecting a promise which was not handled with .catch(). To terminate the node process on unhandled promise rejection, use the CLI flag `--unhandled-rejections=strict` (see https://nodejs.org/api/cli.html#cli_unhandled_rejections_mode). (rejection id: 2)
+App 27346 output: (node:27346) [DEP0018] DeprecationWarning: Unhandled promise rejections are deprecated. In the future, promise rejections that are not handled will terminate the Node.js process with a non-zero exit code.
+App 27346 output: Config > {
+App 27346 output:   db: {
+App 27346 output:     host: '109.234.164.226',
+App 27346 output:     user: 'fuje2936_sl_user',
+App 27346 output:     password: '48N^29$y*4#&rLSMD$9@',
+App 27346 output:     database: 'fuje2936_serial_luncher'
+App 27346 output:   },
+App 27346 output:   listPerPage: 10
+App 27346 output: }
+App 27346 output: MySQL error >  TypeError: Bind parameters must not contain undefined. To pass SQL NULL specify JS null
+App 27346 output:     at /home/fuje2936/nodevenv/serial-luncher-api.turtlecorp.fr/14/lib/node_modules/mysql2/lib/connection.js:592:17
+App 27346 output:     at Array.forEach (<anonymous>)
+App 27346 output:     at Connection.execute (/home/fuje2936/nodevenv/serial-luncher-api.turtlecorp.fr/14/lib/node_modules/mysql2/lib/connection.js:584:22)
+App 27346 output:     at /home/fuje2936/nodevenv/serial-luncher-api.turtlecorp.fr/14/lib/node_modules/mysql2/promise.js:119:11
+App 27346 output:     at new Promise (<anonymous>)
+App 27346 output:     at PromiseConnection.execute (/home/fuje2936/nodevenv/serial-luncher-api.turtlecorp.fr/14/lib/node_modules/mysql2/promise.js:116:12)
+App 27346 output:     at Object.<anonymous> (/home/fuje2936/serial-luncher-api.turtlecorp.fr/build/db/index.js:77:53)
+App 27346 output:     at step (/home/fuje2936/serial-luncher-api.turtlecorp.fr/build/db/index.js:33:23)
+App 27346 output:     at Object.next (/home/fuje2936/serial-luncher-api.turtlecorp.fr/build/db/index.js:14:53)
+App 27346 output:     at fulfilled (/home/fuje2936/serial-luncher-api.turtlecorp.fr/build/db/index.js:5:58)
+App 27346 output: (node:27346) UnhandledPromiseRejectionWarning: TypeError: Cannot read property 'length' of undefined
+App 27346 output:     at /home/fuje2936/serial-luncher-api.turtlecorp.fr/build/routes/places.js:124:37
+App 27346 output:     at step (/home/fuje2936/serial-luncher-api.turtlecorp.fr/build/routes/places.js:33:23)
+App 27346 output:     at Object.next (/home/fuje2936/serial-luncher-api.turtlecorp.fr/build/routes/places.js:14:53)
+App 27346 output:     at fulfilled (/home/fuje2936/serial-luncher-api.turtlecorp.fr/build/routes/places.js:5:58)
+App 27346 output:     at processTicksAndRejections (internal/process/task_queues.js:95:5)
+App 27346 output: (node:27346) UnhandledPromiseRejectionWarning: Unhandled promise rejection. This error originated either by throwing inside of an async function without a catch block, or by rejecting a promise which was not handled with .catch(). To terminate the node process on unhandled promise rejection, use the CLI flag `--unhandled-rejections=strict` (see https://nodejs.org/api/cli.html#cli_unhandled_rejections_mode). (rejection id: 4)
+App 27346 output: Config > {
+App 27346 output:   db: {
+App 27346 output:     host: '109.234.164.226',
+App 27346 output:     user: 'fuje2936_sl_user',
+App 27346 output:     password: '48N^29$y*4#&rLSMD$9@',
+App 27346 output:     database: 'fuje2936_serial_luncher'
+App 27346 output:   },
+App 27346 output:   listPerPage: 10
+App 27346 output: }
+App 27346 output: MySQL error >  TypeError: Bind parameters must not contain undefined. To pass SQL NULL specify JS null
+App 27346 output:     at /home/fuje2936/nodevenv/serial-luncher-api.turtlecorp.fr/14/lib/node_modules/mysql2/lib/connection.js:592:17
+App 27346 output:     at Array.forEach (<anonymous>)
+App 27346 output:     at Connection.execute (/home/fuje2936/nodevenv/serial-luncher-api.turtlecorp.fr/14/lib/node_modules/mysql2/lib/connection.js:584:22)
+App 27346 output:     at /home/fuje2936/nodevenv/serial-luncher-api.turtlecorp.fr/14/lib/node_modules/mysql2/promise.js:119:11
+App 27346 output:     at new Promise (<anonymous>)
+App 27346 output:     at PromiseConnection.execute (/home/fuje2936/nodevenv/serial-luncher-api.turtlecorp.fr/14/lib/node_modules/mysql2/promise.js:116:12)
+App 27346 output:     at Object.<anonymous> (/home/fuje2936/serial-luncher-api.turtlecorp.fr/build/db/index.js:77:53)
+App 27346 output:     at step (/home/fuje2936/serial-luncher-api.turtlecorp.fr/build/db/index.js:33:23)
+App 27346 output:     at Object.next (/home/fuje2936/serial-luncher-api.turtlecorp.fr/build/db/index.js:14:53)
+App 27346 output:     at fulfilled (/home/fuje2936/serial-luncher-api.turtlecorp.fr/build/db/index.js:5:58)
+App 27346 output: (node:27346) UnhandledPromiseRejectionWarning: TypeError: Cannot read property 'length' of undefined
+App 27346 output:     at /home/fuje2936/serial-luncher-api.turtlecorp.fr/build/routes/places.js:124:37
+App 27346 output:     at step (/home/fuje2936/serial-luncher-api.turtlecorp.fr/build/routes/places.js:33:23)
+App 27346 output:     at Object.next (/home/fuje2936/serial-luncher-api.turtlecorp.fr/build/routes/places.js:14:53)
+App 27346 output:     at fulfilled (/home/fuje2936/serial-luncher-api.turtlecorp.fr/build/routes/places.js:5:58)
+App 27346 output:     at processTicksAndRejections (internal/process/task_queues.js:95:5)
+App 27346 output: (node:27346) UnhandledPromiseRejectionWarning: Unhandled promise rejection. This error originated either by throwing inside of an async function without a catch block, or by rejecting a promise which was not handled with .catch(). To terminate the node process on unhandled promise rejection, use the CLI flag `--unhandled-rejections=strict` (see https://nodejs.org/api/cli.html#cli_unhandled_rejections_mode). (rejection id: 6)
+App 27346 output: Config > {
+App 27346 output:   db: {
+App 27346 output:     host: '109.234.164.226',
+App 27346 output:     user: 'fuje2936_sl_user',
+App 27346 output:     password: '48N^29$y*4#&rLSMD$9@',
+App 27346 output:     database: 'fuje2936_serial_luncher'
+App 27346 output:   },
+App 27346 output:   listPerPage: 10
+App 27346 output: }
+App 27346 output: MySQL error >  TypeError: Bind parameters must not contain undefined. To pass SQL NULL specify JS null
+App 27346 output:     at /home/fuje2936/nodevenv/serial-luncher-api.turtlecorp.fr/14/lib/node_modules/mysql2/lib/connection.js:592:17
+App 27346 output:     at Array.forEach (<anonymous>)
+App 27346 output:     at Connection.execute (/home/fuje2936/nodevenv/serial-luncher-api.turtlecorp.fr/14/lib/node_modules/mysql2/lib/connection.js:584:22)
+App 27346 output:     at /home/fuje2936/nodevenv/serial-luncher-api.turtlecorp.fr/14/lib/node_modules/mysql2/promise.js:119:11
+App 27346 output:     at new Promise (<anonymous>)
+App 27346 output:     at PromiseConnection.execute (/home/fuje2936/nodevenv/serial-luncher-api.turtlecorp.fr/14/lib/node_modules/mysql2/promise.js:116:12)
+App 27346 output:     at Object.<anonymous> (/home/fuje2936/serial-luncher-api.turtlecorp.fr/build/db/index.js:77:53)
+App 27346 output:     at step (/home/fuje2936/serial-luncher-api.turtlecorp.fr/build/db/index.js:33:23)
+App 27346 output:     at Object.next (/home/fuje2936/serial-luncher-api.turtlecorp.fr/build/db/index.js:14:53)
+App 27346 output:     at fulfilled (/home/fuje2936/serial-luncher-api.turtlecorp.fr/build/db/index.js:5:58)
+App 27346 output: (node:27346) UnhandledPromiseRejectionWarning: TypeError: Cannot read property 'length' of undefined
+App 27346 output:     at /home/fuje2936/serial-luncher-api.turtlecorp.fr/build/routes/places.js:124:37
+App 27346 output:     at step (/home/fuje2936/serial-luncher-api.turtlecorp.fr/build/routes/places.js:33:23)
+App 27346 output:     at Object.next (/home/fuje2936/serial-luncher-api.turtlecorp.fr/build/routes/places.js:14:53)
+App 27346 output:     at fulfilled (/home/fuje2936/serial-luncher-api.turtlecorp.fr/build/routes/places.js:5:58)
+App 27346 output:     at processTicksAndRejections (internal/process/task_queues.js:95:5)
+App 27346 output: (node:27346) UnhandledPromiseRejectionWarning: Unhandled promise rejection. This error originated either by throwing inside of an async function without a catch block, or by rejecting a promise which was not handled with .catch(). To terminate the node process on unhandled promise rejection, use the CLI flag `--unhandled-rejections=strict` (see https://nodejs.org/api/cli.html#cli_unhandled_rejections_mode). (rejection id: 8)
+App 16578 output: HTTP Server running on port 3000
+App 20695 output: HTTP Server running on port 3000
+App 20036 output: HTTP Server running on port 3000
+App 28569 output: HTTP Server running on port 3000
+App 18677 output: HTTP Server running on port 3000
+App 29675 output: HTTP Server running on port 3000
+App 23440 output: HTTP Server running on port 3000
+App 32494 output: HTTP Server running on port 3000
+App 13927 output: HTTP Server running on port 3000
+App 23211 output: HTTP Server running on port 3000
+App 23083 output: HTTP Server running on port 3000
+App 15075 output: HTTP Server running on port 3000
+App 22533 output: HTTP Server running on port 3000
+App 26281 output: HTTP Server running on port 3000
+App 3824 output: HTTP Server running on port 3000
+App 9084 output: HTTP Server running on port 3000
+App 30382 output: HTTP Server running on port 3000
+App 20419 output: HTTP Server running on port 3000
+App 16855 output: HTTP Server running on port 3000
+App 16855 output: Config > {
+App 16855 output:   db: {
+App 16855 output:     host: '109.234.164.226',
+App 16855 output:     user: 'fuje2936_sl_user',
+App 16855 output:     password: '48N^29$y*4#&rLSMD$9@',
+App 16855 output:     database: 'fuje2936_serial_luncher'
+App 16855 output:   },
+App 16855 output:   listPerPage: 10
+App 16855 output: }
+App 16855 output: MySQL error >  Error: Table 'fuje2936_serial_luncher.user_group_association' doesn't exist
+App 16855 output:     at PromiseConnection.execute (/home/fuje2936/nodevenv/serial-luncher-api.turtlecorp.fr/14/lib/node_modules/mysql2/promise.js:110:22)
+App 16855 output:     at Object.<anonymous> (/home/fuje2936/serial-luncher-api.turtlecorp.fr/build/db/index.js:77:53)
+App 16855 output:     at step (/home/fuje2936/serial-luncher-api.turtlecorp.fr/build/db/index.js:33:23)
+App 16855 output:     at Object.next (/home/fuje2936/serial-luncher-api.turtlecorp.fr/build/db/index.js:14:53)
+App 16855 output:     at fulfilled (/home/fuje2936/serial-luncher-api.turtlecorp.fr/build/db/index.js:5:58)
+App 16855 output:     at processTicksAndRejections (internal/process/task_queues.js:95:5) {
+App 16855 output:   code: 'ER_NO_SUCH_TABLE',
+App 16855 output:   errno: 1146,
+App 16855 output:   sqlState: '42S02',
+App 16855 output:   sqlMessage: "Table 'fuje2936_serial_luncher.user_group_association' doesn't exist"
+App 16855 output: }
+App 16855 output: (node:16855) UnhandledPromiseRejectionWarning: TypeError: Cannot read property 'length' of undefined
+App 16855 output:     at /home/fuje2936/serial-luncher-api.turtlecorp.fr/build/routes/places.js:81:36
+App 16855 output:     at step (/home/fuje2936/serial-luncher-api.turtlecorp.fr/build/routes/places.js:44:23)
+App 16855 output:     at Object.next (/home/fuje2936/serial-luncher-api.turtlecorp.fr/build/routes/places.js:25:53)
+App 16855 output:     at fulfilled (/home/fuje2936/serial-luncher-api.turtlecorp.fr/build/routes/places.js:16:58)
+App 16855 output:     at processTicksAndRejections (internal/process/task_queues.js:95:5)
+App 16855 output: (Use `node --trace-warnings ...` to show where the warning was created)
+App 16855 output: (node:16855) UnhandledPromiseRejectionWarning: Unhandled promise rejection. This error originated either by throwing inside of an async function without a catch block, or by rejecting a promise which was not handled with .catch(). To terminate the node process on unhandled promise rejection, use the CLI flag `--unhandled-rejections=strict` (see https://nodejs.org/api/cli.html#cli_unhandled_rejections_mode). (rejection id: 1)
+App 16855 output: (node:16855) [DEP0018] DeprecationWarning: Unhandled promise rejections are deprecated. In the future, promise rejections that are not handled will terminate the Node.js process with a non-zero exit code.
+App 350 output: HTTP Server running on port 3000
+App 350 output: Config > {
+App 350 output:   db: {
+App 350 output:     host: '109.234.164.226',
+App 350 output:     user: 'fuje2936_sl_user',
+App 350 output:     password: '48N^29$y*4#&rLSMD$9@',
+App 350 output:     database: 'fuje2936_serial_luncher'
+App 350 output:   },
+App 350 output:   listPerPage: 10
+App 350 output: }
+App 350 output: MySQL error >  Error: Column 'image' cannot be null
+App 350 output:     at PromiseConnection.execute (/home/fuje2936/nodevenv/serial-luncher-api.turtlecorp.fr/14/lib/node_modules/mysql2/promise.js:110:22)
+App 350 output:     at Object.<anonymous> (/home/fuje2936/serial-luncher-api.turtlecorp.fr/build/db/index.js:77:53)
+App 350 output:     at step (/home/fuje2936/serial-luncher-api.turtlecorp.fr/build/db/index.js:33:23)
+App 350 output:     at Object.next (/home/fuje2936/serial-luncher-api.turtlecorp.fr/build/db/index.js:14:53)
+App 350 output:     at fulfilled (/home/fuje2936/serial-luncher-api.turtlecorp.fr/build/db/index.js:5:58)
+App 350 output:     at processTicksAndRejections (internal/process/task_queues.js:95:5) {
+App 350 output:   code: 'ER_BAD_NULL_ERROR',
+App 350 output:   errno: 1048,
+App 350 output:   sqlState: '23000',
+App 350 output:   sqlMessage: "Column 'image' cannot be null"
+App 350 output: }
+App 350 output: (node:350) UnhandledPromiseRejectionWarning: TypeError: Cannot read property 'affectedRows' of undefined
+App 350 output:     at /home/fuje2936/serial-luncher-api.turtlecorp.fr/build/routes/places.js:113:37
+App 350 output:     at step (/home/fuje2936/serial-luncher-api.turtlecorp.fr/build/routes/places.js:44:23)
+App 350 output:     at Object.next (/home/fuje2936/serial-luncher-api.turtlecorp.fr/build/routes/places.js:25:53)
+App 350 output:     at fulfilled (/home/fuje2936/serial-luncher-api.turtlecorp.fr/build/routes/places.js:16:58)
+App 350 output:     at processTicksAndRejections (internal/process/task_queues.js:95:5)
+App 350 output: (Use `node --trace-warnings ...` to show where the warning was created)
+App 350 output: (node:350) UnhandledPromiseRejectionWarning: Unhandled promise rejection. This error originated either by throwing inside of an async function without a catch block, or by rejecting a promise which was not handled with .catch(). To terminate the node process on unhandled promise rejection, use the CLI flag `--unhandled-rejections=strict` (see https://nodejs.org/api/cli.html#cli_unhandled_rejections_mode). (rejection id: 1)
+App 350 output: (node:350) [DEP0018] DeprecationWarning: Unhandled promise rejections are deprecated. In the future, promise rejections that are not handled will terminate the Node.js process with a non-zero exit code.
+App 350 output: Config > {
+App 350 output:   db: {
+App 350 output:     host: '109.234.164.226',
+App 350 output:     user: 'fuje2936_sl_user',
+App 350 output:     password: '48N^29$y*4#&rLSMD$9@',
+App 350 output:     database: 'fuje2936_serial_luncher'
+App 350 output:   },
+App 350 output:   listPerPage: 10
+App 350 output: }
+App 350 output: MySQL error >  Error: Column 'image' cannot be null
+App 350 output:     at PromiseConnection.execute (/home/fuje2936/nodevenv/serial-luncher-api.turtlecorp.fr/14/lib/node_modules/mysql2/promise.js:110:22)
+App 350 output:     at Object.<anonymous> (/home/fuje2936/serial-luncher-api.turtlecorp.fr/build/db/index.js:77:53)
+App 350 output:     at step (/home/fuje2936/serial-luncher-api.turtlecorp.fr/build/db/index.js:33:23)
+App 350 output:     at Object.next (/home/fuje2936/serial-luncher-api.turtlecorp.fr/build/db/index.js:14:53)
+App 350 output:     at fulfilled (/home/fuje2936/serial-luncher-api.turtlecorp.fr/build/db/index.js:5:58)
+App 350 output:     at processTicksAndRejections (internal/process/task_queues.js:95:5) {
+App 350 output:   code: 'ER_BAD_NULL_ERROR',
+App 350 output:   errno: 1048,
+App 350 output:   sqlState: '23000',
+App 350 output:   sqlMessage: "Column 'image' cannot be null"
+App 350 output: }
+App 350 output: (node:350) UnhandledPromiseRejectionWarning: TypeError: Cannot read property 'affectedRows' of undefined
+App 350 output:     at /home/fuje2936/serial-luncher-api.turtlecorp.fr/build/routes/places.js:113:37
+App 350 output:     at step (/home/fuje2936/serial-luncher-api.turtlecorp.fr/build/routes/places.js:44:23)
+App 350 output:     at Object.next (/home/fuje2936/serial-luncher-api.turtlecorp.fr/build/routes/places.js:25:53)
+App 350 output:     at fulfilled (/home/fuje2936/serial-luncher-api.turtlecorp.fr/build/routes/places.js:16:58)
+App 350 output:     at processTicksAndRejections (internal/process/task_queues.js:95:5)
+App 350 output: (node:350) UnhandledPromiseRejectionWarning: Unhandled promise rejection. This error originated either by throwing inside of an async function without a catch block, or by rejecting a promise which was not handled with .catch(). To terminate the node process on unhandled promise rejection, use the CLI flag `--unhandled-rejections=strict` (see https://nodejs.org/api/cli.html#cli_unhandled_rejections_mode). (rejection id: 2)
