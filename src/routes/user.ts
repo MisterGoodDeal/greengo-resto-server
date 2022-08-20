@@ -85,7 +85,7 @@ const user = (app: any) => {
 
         // Soft delete user
         await db.queryParams(
-          "UPDATE Users SET deleted_at = ?, firstname = '👻', lastname = '👻', email = 'user@hasbeen.deleted' WHERE id = ?",
+          "UPDATE Users SET deleted_at = ?, firstname = 'DELETED_USER', lastname = '', email = 'user@hasbeen.deleted', oauth_service_id = NULL WHERE id = ?",
           [formattedDate(), id]
         );
         res.status(200);
