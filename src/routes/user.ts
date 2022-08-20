@@ -50,13 +50,13 @@ const user = (app: any) => {
       const query = userQueryBuilder(partialUser);
       console.log(query);
 
-      const user: MySQLResponse = await db.queryParams(
-        `UPDATE Users SET ${query} WHERE id = ?`,
+      await db.queryParams(`UPDATE Users SET ${query} WHERE id = ?`, [id]);
+      const fetchedUser: User[] = await db.queryParams(
+        "SELECT * FROM Users WHERE id = ?",
         [id]
       );
-      console.log(user);
 
-      res.status(200).json(user);
+      res.status(200).json(fetchedUser[0]);
     } else {
       res
         .status(returnCode.unknownUser.code)
