@@ -44,6 +44,15 @@ const user = (app: any) => {
       const seconds = date.getSeconds();
       const formattedDate = `${year}-${month}-${day} ${hours}:${minutes}:${seconds}`;
 
+      const token: string = generateToken({
+        id: user[0].id,
+        email: user[0].email,
+        firstname: user[0].firstname,
+        lastname: user[0].lastname,
+        profile_picture: user[0].profile_picture,
+      });
+      partialUser.token = token;
+
       // @ts-ignore
       partialUser.updated_at = formattedDate;
 
