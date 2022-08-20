@@ -35,14 +35,6 @@ const user = (app: any) => {
       }
 
       // New date to format (YYYY-MM-DD HH:MM:SS)
-      const date = new Date();
-      const year = date.getFullYear();
-      const month = date.getMonth() + 1;
-      const day = date.getDate();
-      const hours = date.getHours();
-      const minutes = date.getMinutes();
-      const seconds = date.getSeconds();
-      const formattedDate = `${year}-${month}-${day} ${hours}:${minutes}:${seconds}`;
 
       const token: string = generateToken({
         id: user[0].id,
@@ -54,7 +46,7 @@ const user = (app: any) => {
       partialUser.token = token;
 
       // @ts-ignore
-      partialUser.updated_at = formattedDate;
+      partialUser.updated_at = formattedDate();
 
       const query = userQueryBuilder(partialUser);
       console.log(query);
@@ -72,6 +64,38 @@ const user = (app: any) => {
         .json(returnCode.unknownUser.payload);
     }
   });
+
+  // Delete the user
+  app.delete(
+    "/user/delete",
+    auth,
+    async function (req: Request, res: Response) {
+      // @ts-ignore
+      const { id } = req.user;
+      const user: User[] = await db.queryParams(
+        "SELECT * FROM Users WHERE id = ?",
+        [id]
+      );
+      if (user.length === 1) {
+        // Leave group
+        await db.queryParams(
+          "DELETE FROM UsersLauchGroupsAssoc WHERE fk_user = ?",
+          [id]
+        );
+
+        // Soft delete user
+        await db.queryParams(
+          "UPDATE Users SET deleted_at = ?, firstname = '👻', lastname = '👻', email = 'user@hasbeen.deleted' WHERE id = ?",
+          [formattedDate(), id]
+        );
+        res.status(200);
+      } else {
+        res
+          .status(returnCode.unknownUser.code)
+          .json(returnCode.unknownUser.payload);
+      }
+    }
+  );
 };
 
 const userQueryBuilder = (user: Partial<User>) => {
@@ -85,6 +109,17 @@ const userQueryBuilder = (user: Partial<User>) => {
     )
     .join(", ");
   return query;
+};
+
+const formattedDate = () => {
+  const date = new Date();
+  const year = date.getFullYear();
+  const month = date.getMonth() + 1;
+  const day = date.getDate();
+  const hours = date.getHours();
+  const minutes = date.getMinutes();
+  const seconds = date.getSeconds();
+  return `${year}-${month}-${day} ${hours}:${minutes}:${seconds}`;
 };
 
 export default user;
