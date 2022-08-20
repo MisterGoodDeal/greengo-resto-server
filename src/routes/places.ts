@@ -38,7 +38,7 @@ const places = (app: any) => {
       !name ||
       !rating ||
       !price_range ||
-      !can_bring_reusable_content
+      typeof can_bring_reusable_content !== "boolean"
     ) {
       res.status(returnCode.missingParameters.code).json({
         payload: returnCode.missingParameters.payload,
