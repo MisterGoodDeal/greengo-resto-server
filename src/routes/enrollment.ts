@@ -157,6 +157,16 @@ const enrollment = (app: any) => {
           token,
           user[0].id,
         ]);
+        // Check if user is in a group
+        const group: any = await db.queryParams(
+          "SELECT * FROM UsersLauchGroupsAssoc WHERE fk_user = ?",
+          [user[0].id]
+        );
+        if (group.length > 0) {
+          user[0].hasGroup = true;
+        } else {
+          user[0].hasGroup = false;
+        }
         user[0].token = token;
         user[0].password = "redacted";
         res.status(200).json(user[0]);
