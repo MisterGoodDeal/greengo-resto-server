@@ -114,7 +114,9 @@ const groups = (app: any) => {
         "SELECT * FROM LunchPlaces WHERE fk_lunch_group = ? ORDER BY RAND() LIMIT 1",
         [group[0].id]
       );
-      finalGroup.random_image = randomPlace[0].image;
+      if (randomPlace.length > 0) {
+        finalGroup.random_image = randomPlace[0].image;
+      }
 
       res.status(200).json(finalGroup);
     }

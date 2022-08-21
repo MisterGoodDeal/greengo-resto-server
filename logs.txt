@@ -380,3 +380,237 @@ App 350 output:     at Object.next (/home/fuje2936/serial-luncher-api.turtlecorp
 App 350 output:     at fulfilled (/home/fuje2936/serial-luncher-api.turtlecorp.fr/build/routes/places.js:16:58)
 App 350 output:     at processTicksAndRejections (internal/process/task_queues.js:95:5)
 App 350 output: (node:350) UnhandledPromiseRejectionWarning: Unhandled promise rejection. This error originated either by throwing inside of an async function without a catch block, or by rejecting a promise which was not handled with .catch(). To terminate the node process on unhandled promise rejection, use the CLI flag `--unhandled-rejections=strict` (see https://nodejs.org/api/cli.html#cli_unhandled_rejections_mode). (rejection id: 2)
+App 14576 output: HTTP Server running on port 3000
+App 3283 output: HTTP Server running on port 3000
+App 25107 output: HTTP Server running on port 3000
+App 18275 output: HTTP Server running on port 3000
+App 11023 output: HTTP Server running on port 3000
+App 15050 output: HTTP Server running on port 3000
+App 23520 output: HTTP Server running on port 3000
+App 17768 output: HTTP Server running on port 3000
+App 17847 output: HTTP Server running on port 3000
+App 2652 output: HTTP Server running on port 3000
+App 6272 output: HTTP Server running on port 3000
+App 29356 output: HTTP Server running on port 3000
+App 22843 output: HTTP Server running on port 3000
+App 15950 output: HTTP Server running on port 3000
+App 24365 output: HTTP Server running on port 3000
+App 21965 output: HTTP Server running on port 3000
+App 24079 output: HTTP Server running on port 3000
+App 1626 output: HTTP Server running on port 3000
+App 16199 output: HTTP Server running on port 3000
+App 4170 output: HTTP Server running on port 3000
+App 17809 output: HTTP Server running on port 3000
+App 29010 output: HTTP Server running on port 3000
+App 28616 output: HTTP Server running on port 3000
+App 29025 output: HTTP Server running on port 3000
+App 24926 output: HTTP Server running on port 3000
+App 4050 output: HTTP Server running on port 3000
+App 28938 output: HTTP Server running on port 3000
+App 474 output: HTTP Server running on port 3000
+App 22483 output: HTTP Server running on port 3000
+App 6828 output: HTTP Server running on port 3000
+App 29719 output: HTTP Server running on port 3000
+App 11931 output: HTTP Server running on port 3000
+App 31668 output: HTTP Server running on port 3000
+App 1229 output: HTTP Server running on port 3000
+App 22114 output: HTTP Server running on port 3000
+App 16818 output: HTTP Server running on port 3000
+App 16818 output: (node:16818) UnhandledPromiseRejectionWarning: TypeError: Cannot read property 'fk_lunch_group' of undefined
+App 16818 output:     at /home/fuje2936/serial-luncher-api.turtlecorp.fr/build/routes/places.js:136:123
+App 16818 output:     at step (/home/fuje2936/serial-luncher-api.turtlecorp.fr/build/routes/places.js:44:23)
+App 16818 output:     at Object.next (/home/fuje2936/serial-luncher-api.turtlecorp.fr/build/routes/places.js:25:53)
+App 16818 output:     at fulfilled (/home/fuje2936/serial-luncher-api.turtlecorp.fr/build/routes/places.js:16:58)
+App 16818 output:     at processTicksAndRejections (internal/process/task_queues.js:95:5)
+App 16818 output: (Use `node --trace-warnings ...` to show where the warning was created)
+App 16818 output: (node:16818) UnhandledPromiseRejectionWarning: Unhandled promise rejection. This error originated either by throwing inside of an async function without a catch block, or by rejecting a promise which was not handled with .catch(). To terminate the node process on unhandled promise rejection, use the CLI flag `--unhandled-rejections=strict` (see https://nodejs.org/api/cli.html#cli_unhandled_rejections_mode). (rejection id: 1)
+App 16818 output: (node:16818) [DEP0018] DeprecationWarning: Unhandled promise rejections are deprecated. In the future, promise rejections that are not handled will terminate the Node.js process with a non-zero exit code.
+App 16818 output: (node:16818) UnhandledPromiseRejectionWarning: TypeError: Cannot read property 'image' of undefined
+App 16818 output:     at /home/fuje2936/serial-luncher-api.turtlecorp.fr/build/routes/groups.js:134:68
+App 16818 output:     at step (/home/fuje2936/serial-luncher-api.turtlecorp.fr/build/routes/groups.js:33:23)
+App 16818 output:     at Object.next (/home/fuje2936/serial-luncher-api.turtlecorp.fr/build/routes/groups.js:14:53)
+App 16818 output:     at fulfilled (/home/fuje2936/serial-luncher-api.turtlecorp.fr/build/routes/groups.js:5:58)
+App 16818 output:     at processTicksAndRejections (internal/process/task_queues.js:95:5)
+App 16818 output: (node:16818) UnhandledPromiseRejectionWarning: Unhandled promise rejection. This error originated either by throwing inside of an async function without a catch block, or by rejecting a promise which was not handled with .catch(). To terminate the node process on unhandled promise rejection, use the CLI flag `--unhandled-rejections=strict` (see https://nodejs.org/api/cli.html#cli_unhandled_rejections_mode). (rejection id: 2)
+App 1832 output: HTTP Server running on port 3000
+App 13241 output: HTTP Server running on port 3000
+App 13241 output: (node:13241) UnhandledPromiseRejectionWarning: TypeError: Cannot read property 'image' of undefined
+App 13241 output:     at /home/fuje2936/serial-luncher-api.turtlecorp.fr/build/routes/groups.js:134:68
+App 13241 output:     at step (/home/fuje2936/serial-luncher-api.turtlecorp.fr/build/routes/groups.js:33:23)
+App 13241 output:     at Object.next (/home/fuje2936/serial-luncher-api.turtlecorp.fr/build/routes/groups.js:14:53)
+App 13241 output:     at fulfilled (/home/fuje2936/serial-luncher-api.turtlecorp.fr/build/routes/groups.js:5:58)
+App 13241 output:     at runMicrotasks (<anonymous>)
+App 13241 output:     at processTicksAndRejections (internal/process/task_queues.js:95:5)
+App 13241 output: (Use `node --trace-warnings ...` to show where the warning was created)
+App 13241 output: (node:13241) UnhandledPromiseRejectionWarning: Unhandled promise rejection. This error originated either by throwing inside of an async function without a catch block, or by rejecting a promise which was not handled with .catch(). To terminate the node process on unhandled promise rejection, use the CLI flag `--unhandled-rejections=strict` (see https://nodejs.org/api/cli.html#cli_unhandled_rejections_mode). (rejection id: 1)
+App 13241 output: (node:13241) [DEP0018] DeprecationWarning: Unhandled promise rejections are deprecated. In the future, promise rejections that are not handled will terminate the Node.js process with a non-zero exit code.
+App 13241 output: (node:13241) UnhandledPromiseRejectionWarning: TypeError: Cannot read property 'image' of undefined
+App 13241 output:     at /home/fuje2936/serial-luncher-api.turtlecorp.fr/build/routes/groups.js:134:68
+App 13241 output:     at step (/home/fuje2936/serial-luncher-api.turtlecorp.fr/build/routes/groups.js:33:23)
+App 13241 output:     at Object.next (/home/fuje2936/serial-luncher-api.turtlecorp.fr/build/routes/groups.js:14:53)
+App 13241 output:     at fulfilled (/home/fuje2936/serial-luncher-api.turtlecorp.fr/build/routes/groups.js:5:58)
+App 13241 output:     at runMicrotasks (<anonymous>)
+App 13241 output:     at processTicksAndRejections (internal/process/task_queues.js:95:5)
+App 13241 output: (node:13241) UnhandledPromiseRejectionWarning: Unhandled promise rejection. This error originated either by throwing inside of an async function without a catch block, or by rejecting a promise which was not handled with .catch(). To terminate the node process on unhandled promise rejection, use the CLI flag `--unhandled-rejections=strict` (see https://nodejs.org/api/cli.html#cli_unhandled_rejections_mode). (rejection id: 2)
+App 2001 output: HTTP Server running on port 3000
+App 23752 output: HTTP Server running on port 3000
+App 23752 output: Config > {
+App 23752 output:   db: {
+App 23752 output:     host: '109.234.164.226',
+App 23752 output:     user: 'fuje2936_sl_user',
+App 23752 output:     password: '48N^29$y*4#&rLSMD$9@',
+App 23752 output:     database: 'fuje2936_serial_luncher'
+App 23752 output:   },
+App 23752 output:   listPerPage: 10
+App 23752 output: }
+App 23752 output: MySQL error >  Error: Cannot delete or update a parent row: a foreign key constraint fails (`fuje2936_serial_luncher`.`LunchPlacesComments`, CONSTRAINT `fk_lp_lpc` FOREIGN KEY (`fk_lunch_place`) REFERENCES `LunchPlaces` (`id`))
+App 23752 output:     at PromiseConnection.execute (/home/fuje2936/nodevenv/serial-luncher-api.turtlecorp.fr/14/lib/node_modules/mysql2/promise.js:110:22)
+App 23752 output:     at Object.<anonymous> (/home/fuje2936/serial-luncher-api.turtlecorp.fr/build/db/index.js:77:53)
+App 23752 output:     at step (/home/fuje2936/serial-luncher-api.turtlecorp.fr/build/db/index.js:33:23)
+App 23752 output:     at Object.next (/home/fuje2936/serial-luncher-api.turtlecorp.fr/build/db/index.js:14:53)
+App 23752 output:     at fulfilled (/home/fuje2936/serial-luncher-api.turtlecorp.fr/build/db/index.js:5:58)
+App 23752 output:     at runMicrotasks (<anonymous>)
+App 23752 output:     at processTicksAndRejections (internal/process/task_queues.js:95:5) {
+App 23752 output:   code: 'ER_ROW_IS_REFERENCED_2',
+App 23752 output:   errno: 1451,
+App 23752 output:   sqlState: '23000',
+App 23752 output:   sqlMessage: 'Cannot delete or update a parent row: a foreign key constraint fails (`fuje2936_serial_luncher`.`LunchPlacesComments`, CONSTRAINT `fk_lp_lpc` FOREIGN KEY (`fk_lunch_place`) REFERENCES `LunchPlaces` (`id`))'
+App 23752 output: }
+App 23752 output: (node:23752) UnhandledPromiseRejectionWarning: TypeError: Cannot read property 'affectedRows' of undefined
+App 23752 output:     at /home/fuje2936/serial-luncher-api.turtlecorp.fr/build/routes/groups.js:314:73
+App 23752 output:     at step (/home/fuje2936/serial-luncher-api.turtlecorp.fr/build/routes/groups.js:33:23)
+App 23752 output:     at Object.next (/home/fuje2936/serial-luncher-api.turtlecorp.fr/build/routes/groups.js:14:53)
+App 23752 output:     at fulfilled (/home/fuje2936/serial-luncher-api.turtlecorp.fr/build/routes/groups.js:5:58)
+App 23752 output:     at runMicrotasks (<anonymous>)
+App 23752 output:     at processTicksAndRejections (internal/process/task_queues.js:95:5)
+App 23752 output: (Use `node --trace-warnings ...` to show where the warning was created)
+App 23752 output: (node:23752) UnhandledPromiseRejectionWarning: Unhandled promise rejection. This error originated either by throwing inside of an async function without a catch block, or by rejecting a promise which was not handled with .catch(). To terminate the node process on unhandled promise rejection, use the CLI flag `--unhandled-rejections=strict` (see https://nodejs.org/api/cli.html#cli_unhandled_rejections_mode). (rejection id: 1)
+App 23752 output: (node:23752) [DEP0018] DeprecationWarning: Unhandled promise rejections are deprecated. In the future, promise rejections that are not handled will terminate the Node.js process with a non-zero exit code.
+App 23752 output: Config > {
+App 23752 output:   db: {
+App 23752 output:     host: '109.234.164.226',
+App 23752 output:     user: 'fuje2936_sl_user',
+App 23752 output:     password: '48N^29$y*4#&rLSMD$9@',
+App 23752 output:     database: 'fuje2936_serial_luncher'
+App 23752 output:   },
+App 23752 output:   listPerPage: 10
+App 23752 output: }
+App 23752 output: MySQL error >  Error: Cannot delete or update a parent row: a foreign key constraint fails (`fuje2936_serial_luncher`.`LunchPlacesComments`, CONSTRAINT `fk_lp_lpc` FOREIGN KEY (`fk_lunch_place`) REFERENCES `LunchPlaces` (`id`))
+App 23752 output:     at PromiseConnection.execute (/home/fuje2936/nodevenv/serial-luncher-api.turtlecorp.fr/14/lib/node_modules/mysql2/promise.js:110:22)
+App 23752 output:     at Object.<anonymous> (/home/fuje2936/serial-luncher-api.turtlecorp.fr/build/db/index.js:77:53)
+App 23752 output:     at step (/home/fuje2936/serial-luncher-api.turtlecorp.fr/build/db/index.js:33:23)
+App 23752 output:     at Object.next (/home/fuje2936/serial-luncher-api.turtlecorp.fr/build/db/index.js:14:53)
+App 23752 output:     at fulfilled (/home/fuje2936/serial-luncher-api.turtlecorp.fr/build/db/index.js:5:58)
+App 23752 output:     at runMicrotasks (<anonymous>)
+App 23752 output:     at processTicksAndRejections (internal/process/task_queues.js:95:5) {
+App 23752 output:   code: 'ER_ROW_IS_REFERENCED_2',
+App 23752 output:   errno: 1451,
+App 23752 output:   sqlState: '23000',
+App 23752 output:   sqlMessage: 'Cannot delete or update a parent row: a foreign key constraint fails (`fuje2936_serial_luncher`.`LunchPlacesComments`, CONSTRAINT `fk_lp_lpc` FOREIGN KEY (`fk_lunch_place`) REFERENCES `LunchPlaces` (`id`))'
+App 23752 output: }
+App 23752 output: (node:23752) UnhandledPromiseRejectionWarning: TypeError: Cannot read property 'affectedRows' of undefined
+App 23752 output:     at /home/fuje2936/serial-luncher-api.turtlecorp.fr/build/routes/groups.js:314:73
+App 23752 output:     at step (/home/fuje2936/serial-luncher-api.turtlecorp.fr/build/routes/groups.js:33:23)
+App 23752 output:     at Object.next (/home/fuje2936/serial-luncher-api.turtlecorp.fr/build/routes/groups.js:14:53)
+App 23752 output:     at fulfilled (/home/fuje2936/serial-luncher-api.turtlecorp.fr/build/routes/groups.js:5:58)
+App 23752 output:     at runMicrotasks (<anonymous>)
+App 23752 output:     at processTicksAndRejections (internal/process/task_queues.js:95:5)
+App 23752 output: (node:23752) UnhandledPromiseRejectionWarning: Unhandled promise rejection. This error originated either by throwing inside of an async function without a catch block, or by rejecting a promise which was not handled with .catch(). To terminate the node process on unhandled promise rejection, use the CLI flag `--unhandled-rejections=strict` (see https://nodejs.org/api/cli.html#cli_unhandled_rejections_mode). (rejection id: 2)
+App 23752 output: (node:23752) UnhandledPromiseRejectionWarning: TypeError: Cannot read property 'fk_lunch_group' of undefined
+App 23752 output:     at /home/fuje2936/serial-luncher-api.turtlecorp.fr/build/routes/places.js:136:123
+App 23752 output:     at step (/home/fuje2936/serial-luncher-api.turtlecorp.fr/build/routes/places.js:44:23)
+App 23752 output:     at Object.next (/home/fuje2936/serial-luncher-api.turtlecorp.fr/build/routes/places.js:25:53)
+App 23752 output:     at fulfilled (/home/fuje2936/serial-luncher-api.turtlecorp.fr/build/routes/places.js:16:58)
+App 23752 output:     at runMicrotasks (<anonymous>)
+App 23752 output:     at processTicksAndRejections (internal/process/task_queues.js:95:5)
+App 23752 output: (node:23752) UnhandledPromiseRejectionWarning: Unhandled promise rejection. This error originated either by throwing inside of an async function without a catch block, or by rejecting a promise which was not handled with .catch(). To terminate the node process on unhandled promise rejection, use the CLI flag `--unhandled-rejections=strict` (see https://nodejs.org/api/cli.html#cli_unhandled_rejections_mode). (rejection id: 3)
+App 22787 output: HTTP Server running on port 3000
+App 22787 output: profile_picture = '', updated_at = '2022-8-20 22:59:53'
+App 22787 output: ResultSetHeader {
+App 22787 output:   fieldCount: 0,
+App 22787 output:   affectedRows: 1,
+App 22787 output:   insertId: 0,
+App 22787 output:   info: 'Rows matched: 1  Changed: 1  Warnings: 0',
+App 22787 output:   serverStatus: 2,
+App 22787 output:   warningStatus: 0,
+App 22787 output:   changedRows: 1
+App 22787 output: }
+App 26253 output: HTTP Server running on port 3000
+App 26253 output: (node:26253) UnhandledPromiseRejectionWarning: TypeError: Cannot read property 'fk_lunch_group' of undefined
+App 26253 output:     at /home/fuje2936/serial-luncher-api.turtlecorp.fr/build/routes/places.js:136:123
+App 26253 output:     at step (/home/fuje2936/serial-luncher-api.turtlecorp.fr/build/routes/places.js:44:23)
+App 26253 output:     at Object.next (/home/fuje2936/serial-luncher-api.turtlecorp.fr/build/routes/places.js:25:53)
+App 26253 output:     at fulfilled (/home/fuje2936/serial-luncher-api.turtlecorp.fr/build/routes/places.js:16:58)
+App 26253 output:     at processTicksAndRejections (internal/process/task_queues.js:95:5)
+App 26253 output: (Use `node --trace-warnings ...` to show where the warning was created)
+App 26253 output: (node:26253) UnhandledPromiseRejectionWarning: Unhandled promise rejection. This error originated either by throwing inside of an async function without a catch block, or by rejecting a promise which was not handled with .catch(). To terminate the node process on unhandled promise rejection, use the CLI flag `--unhandled-rejections=strict` (see https://nodejs.org/api/cli.html#cli_unhandled_rejections_mode). (rejection id: 1)
+App 26253 output: (node:26253) [DEP0018] DeprecationWarning: Unhandled promise rejections are deprecated. In the future, promise rejections that are not handled will terminate the Node.js process with a non-zero exit code.
+App 31341 output: HTTP Server running on port 3000
+App 9696 output: HTTP Server running on port 3000
+App 24733 output: HTTP Server running on port 3000
+App 24733 output: profile_picture = 'https://i.imgur.com/yJkQkMk.jpg', token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MzAsImZpcnN0bmFtZSI6Ik1pbGFuIiwibGFzdG5hbWUiOiJDYW11cyIsImVtYWlsIjoiaGNwN3N3OXZycEBwcml2YXRlcmVsYXkuYXBwbGVpZC5jb20iLCJwcm9maWxlX3BpY3R1cmUiOiIiLCJpYXQiOjE2NjEwMzQ2NTcsImV4cCI6MTY2MTYzOTQ1N30.uSGoqH4fTzx3lJFiBC-zfrRh3h_AyeKdSPAscpoS-Yk', updated_at = '2022-8-21 0:30:57'
+App 24733 output: profile_picture = 'https://i.imgur.com/zxtN5aA.gif', token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MzAsImZpcnN0bmFtZSI6Ik1pbGFuIiwibGFzdG5hbWUiOiJDYW11cyIsImVtYWlsIjoiaGNwN3N3OXZycEBwcml2YXRlcmVsYXkuYXBwbGVpZC5jb20iLCJwcm9maWxlX3BpY3R1cmUiOiJodHRwczovL2kuaW1ndXIuY29tL3lKa1FrTWsuanBnIiwiaWF0IjoxNjYxMDM0NzAwLCJleHAiOjE2NjE2Mzk1MDB9.3ZvVQMDtrp8bB1ijgJtin3vGkw0d8gPlda7gYPR4cg0', updated_at = '2022-8-21 0:31:40'
+App 24733 output: email = 'mcamus@condorcet93.f', token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZmlyc3RuYW1lIjoiTWlsYW4iLCJsYXN0bmFtZSI6IkNhbXVzIiwiZW1haWwiOiJtY2FtdXNAY29uZG9yY2V0OTMuZnIiLCJwcm9maWxlX3BpY3R1cmUiOiJodHRwczovL2kuaW1ndXIuY29tL0lMZ0dZNlAucG5nIiwiaWF0IjoxNjYxMDM0ODIwLCJleHAiOjE2NjE2Mzk2MjB9.JYjN5OhSTLRfzF6KUcrhNdknmBeXOpC9R51LB1KCu-Q', updated_at = '2022-8-21 0:33:40'
+App 24733 output: email = 'mcamus@condorcet93.fr', token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZmlyc3RuYW1lIjoiTWlsYW4iLCJsYXN0bmFtZSI6IkNhbXVzIiwiZW1haWwiOiJtY2FtdXNAY29uZG9yY2V0OTMuZiIsInByb2ZpbGVfcGljdHVyZSI6Imh0dHBzOi8vaS5pbWd1ci5jb20vSUxnR1k2UC5wbmciLCJpYXQiOjE2NjEwMzQ4MjMsImV4cCI6MTY2MTYzOTYyM30.30ujek1cukNDYty09YNXaqJ3BrMHRCZttNMedM1t4Hk', updated_at = '2022-8-21 0:33:43'
+App 24733 output: password = '$2b$10$jJtekv3bz/0KfsSwWAMnb.C1ovyFeoDDGgfGno4c02DETxYGlMNfC', token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZmlyc3RuYW1lIjoiTWlsYW4iLCJsYXN0bmFtZSI6IkNhbXVzIiwiZW1haWwiOiJtY2FtdXNAY29uZG9yY2V0OTMuZnIiLCJwcm9maWxlX3BpY3R1cmUiOiJodHRwczovL2kuaW1ndXIuY29tL0lMZ0dZNlAucG5nIiwiaWF0IjoxNjYxMDM1NTMyLCJleHAiOjE2NjE2NDAzMzJ9.WaMcw5JS9VYW40yXcqukmKI3j6W9OaxHXgJshpgFnK4', updated_at = '2022-8-21 0:45:32'
+App 24733 output: password = '$2b$10$EpElKCIlHl5Q.WGSFInbLOHfsTe75Toq/fVE4v66sxOWaYJIVi9ES', token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZmlyc3RuYW1lIjoiTWlsYW4iLCJsYXN0bmFtZSI6IkNhbXVzIiwiZW1haWwiOiJtY2FtdXNAY29uZG9yY2V0OTMuZnIiLCJwcm9maWxlX3BpY3R1cmUiOiJodHRwczovL2kuaW1ndXIuY29tL0lMZ0dZNlAucG5nIiwiaWF0IjoxNjYxMDM1NTkwLCJleHAiOjE2NjE2NDAzOTB9.R9cUzfeBmTF-sBK9iz40JqkcKGHReZGP3VPFyYG7f_I', updated_at = '2022-8-21 0:46:30'
+App 24733 output: email = 'mcamus@condorcet93', token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZmlyc3RuYW1lIjoiTWlsYW4iLCJsYXN0bmFtZSI6IkNhbXVzIiwiZW1haWwiOiJtY2FtdXNAY29uZG9yY2V0OTMuZnIiLCJwcm9maWxlX3BpY3R1cmUiOiJodHRwczovL2kuaW1ndXIuY29tL0lMZ0dZNlAucG5nIiwiaWF0IjoxNjYxMDM1NzI1LCJleHAiOjE2NjE2NDA1MjV9.SOGes-wlQkPYcF_keDi3ZY2_tKacqKqRKorhz0vIBws', updated_at = '2022-8-21 0:48:45'
+App 24733 output: email = 'mcamus@condorcet93r', token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZmlyc3RuYW1lIjoiTWlsYW4iLCJsYXN0bmFtZSI6IkNhbXVzIiwiZW1haWwiOiJtY2FtdXNAY29uZG9yY2V0OTMiLCJwcm9maWxlX3BpY3R1cmUiOiJodHRwczovL2kuaW1ndXIuY29tL0lMZ0dZNlAucG5nIiwiaWF0IjoxNjYxMDM1NzgxLCJleHAiOjE2NjE2NDA1ODF9.bnd6XVryOqnngZrQaSszea2eDyk2ZgV1a1uu3KMH2qM', updated_at = '2022-8-21 0:49:41'
+App 24733 output: email = 'mcamus@condorcet93.fr', token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZmlyc3RuYW1lIjoiTWlsYW4iLCJsYXN0bmFtZSI6IkNhbXVzIiwiZW1haWwiOiJtY2FtdXNAY29uZG9yY2V0OTNyIiwicHJvZmlsZV9waWN0dXJlIjoiaHR0cHM6Ly9pLmltZ3VyLmNvbS9JTGdHWTZQLnBuZyIsImlhdCI6MTY2MTAzNTc4OCwiZXhwIjoxNjYxNjQwNTg4fQ.7hY1UZqdcMOw6rn1QvbElEIIUJ8jK--yVXOChUPymMQ', updated_at = '2022-8-21 0:49:48'
+App 29485 output: HTTP Server running on port 3000
+App 29485 output: (node:29485) UnhandledPromiseRejectionWarning: TypeError: Cannot read property 'image' of undefined
+App 29485 output:     at /home/fuje2936/serial-luncher-api.turtlecorp.fr/build/routes/groups.js:134:68
+App 29485 output:     at step (/home/fuje2936/serial-luncher-api.turtlecorp.fr/build/routes/groups.js:33:23)
+App 29485 output:     at Object.next (/home/fuje2936/serial-luncher-api.turtlecorp.fr/build/routes/groups.js:14:53)
+App 29485 output:     at fulfilled (/home/fuje2936/serial-luncher-api.turtlecorp.fr/build/routes/groups.js:5:58)
+App 29485 output:     at processTicksAndRejections (internal/process/task_queues.js:95:5)
+App 29485 output: (Use `node --trace-warnings ...` to show where the warning was created)
+App 29485 output: (node:29485) UnhandledPromiseRejectionWarning: Unhandled promise rejection. This error originated either by throwing inside of an async function without a catch block, or by rejecting a promise which was not handled with .catch(). To terminate the node process on unhandled promise rejection, use the CLI flag `--unhandled-rejections=strict` (see https://nodejs.org/api/cli.html#cli_unhandled_rejections_mode). (rejection id: 1)
+App 29485 output: (node:29485) [DEP0018] DeprecationWarning: Unhandled promise rejections are deprecated. In the future, promise rejections that are not handled will terminate the Node.js process with a non-zero exit code.
+App 29485 output: (node:29485) UnhandledPromiseRejectionWarning: TypeError: Cannot read property 'image' of undefined
+App 29485 output:     at /home/fuje2936/serial-luncher-api.turtlecorp.fr/build/routes/groups.js:134:68
+App 29485 output:     at step (/home/fuje2936/serial-luncher-api.turtlecorp.fr/build/routes/groups.js:33:23)
+App 29485 output:     at Object.next (/home/fuje2936/serial-luncher-api.turtlecorp.fr/build/routes/groups.js:14:53)
+App 29485 output:     at fulfilled (/home/fuje2936/serial-luncher-api.turtlecorp.fr/build/routes/groups.js:5:58)
+App 29485 output:     at processTicksAndRejections (internal/process/task_queues.js:95:5)
+App 29485 output: (node:29485) UnhandledPromiseRejectionWarning: Unhandled promise rejection. This error originated either by throwing inside of an async function without a catch block, or by rejecting a promise which was not handled with .catch(). To terminate the node process on unhandled promise rejection, use the CLI flag `--unhandled-rejections=strict` (see https://nodejs.org/api/cli.html#cli_unhandled_rejections_mode). (rejection id: 2)
+App 29485 output: profile_picture = 'https://i.imgur.com/59vHVgk.jpg', token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZmlyc3RuYW1lIjoiTWlsYW4iLCJsYXN0bmFtZSI6IkNhbXVzIiwiZW1haWwiOiJoY3A3c3c5dnJwQHByaXZhdGVyZWxheS5hcHBsZWlkLmNvbSIsInByb2ZpbGVfcGljdHVyZSI6IiIsImlhdCI6MTY2MTAzNzE1NywiZXhwIjoxNjYxNjQxOTU3fQ.WwS8WN5KHryeTLAO4cf8--yPtY64Ol4n5RAk1FYiEKA', updated_at = '2022-8-21 1:12:37'
+App 7902 output: HTTP Server running on port 3000
+App 7902 output: lastname = 'CAMUS', token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZmlyc3RuYW1lIjoiTWlsYW4iLCJsYXN0bmFtZSI6IkNhbXVzIiwiZW1haWwiOiJoY3A3c3c5dnJwQHByaXZhdGVyZWxheS5hcHBsZWlkLmNvbSIsInByb2ZpbGVfcGljdHVyZSI6Imh0dHBzOi8vaS5pbWd1ci5jb20vNTl2SFZnay5qcGciLCJpYXQiOjE2NjEwODQ0MTAsImV4cCI6MTY2MTY4OTIxMH0.lKXep2ftz4u0LLPjjGRCLNnui63THU5ejo9uzW9SAVA', updated_at = '2022-8-21 14:20:10'
+App 4020 output: HTTP Server running on port 3000
+App 16259 output: HTTP Server running on port 3000
+App 19302 output: HTTP Server running on port 3000
+App 26753 output: HTTP Server running on port 3000
+App 26753 output: (node:26753) UnhandledPromiseRejectionWarning: TypeError: Cannot read property 'image' of undefined
+App 26753 output:     at /home/fuje2936/serial-luncher-api.turtlecorp.fr/build/routes/groups.js:134:68
+App 26753 output:     at step (/home/fuje2936/serial-luncher-api.turtlecorp.fr/build/routes/groups.js:33:23)
+App 26753 output:     at Object.next (/home/fuje2936/serial-luncher-api.turtlecorp.fr/build/routes/groups.js:14:53)
+App 26753 output:     at fulfilled (/home/fuje2936/serial-luncher-api.turtlecorp.fr/build/routes/groups.js:5:58)
+App 26753 output:     at processTicksAndRejections (internal/process/task_queues.js:95:5)
+App 26753 output: (Use `node --trace-warnings ...` to show where the warning was created)
+App 26753 output: (node:26753) UnhandledPromiseRejectionWarning: Unhandled promise rejection. This error originated either by throwing inside of an async function without a catch block, or by rejecting a promise which was not handled with .catch(). To terminate the node process on unhandled promise rejection, use the CLI flag `--unhandled-rejections=strict` (see https://nodejs.org/api/cli.html#cli_unhandled_rejections_mode). (rejection id: 1)
+App 26753 output: (node:26753) [DEP0018] DeprecationWarning: Unhandled promise rejections are deprecated. In the future, promise rejections that are not handled will terminate the Node.js process with a non-zero exit code.
+App 26753 output: (node:26753) UnhandledPromiseRejectionWarning: TypeError: Cannot read property 'image' of undefined
+App 26753 output:     at /home/fuje2936/serial-luncher-api.turtlecorp.fr/build/routes/groups.js:134:68
+App 26753 output:     at step (/home/fuje2936/serial-luncher-api.turtlecorp.fr/build/routes/groups.js:33:23)
+App 26753 output:     at Object.next (/home/fuje2936/serial-luncher-api.turtlecorp.fr/build/routes/groups.js:14:53)
+App 26753 output:     at fulfilled (/home/fuje2936/serial-luncher-api.turtlecorp.fr/build/routes/groups.js:5:58)
+App 26753 output:     at processTicksAndRejections (internal/process/task_queues.js:95:5)
+App 26753 output: (node:26753) UnhandledPromiseRejectionWarning: Unhandled promise rejection. This error originated either by throwing inside of an async function without a catch block, or by rejecting a promise which was not handled with .catch(). To terminate the node process on unhandled promise rejection, use the CLI flag `--unhandled-rejections=strict` (see https://nodejs.org/api/cli.html#cli_unhandled_rejections_mode). (rejection id: 2)
+App 14069 output: HTTP Server running on port 3000
+App 14069 output: (node:14069) UnhandledPromiseRejectionWarning: TypeError: Cannot read property 'image' of undefined
+App 14069 output:     at /home/fuje2936/serial-luncher-api.turtlecorp.fr/build/routes/groups.js:134:68
+App 14069 output:     at step (/home/fuje2936/serial-luncher-api.turtlecorp.fr/build/routes/groups.js:33:23)
+App 14069 output:     at Object.next (/home/fuje2936/serial-luncher-api.turtlecorp.fr/build/routes/groups.js:14:53)
+App 14069 output:     at fulfilled (/home/fuje2936/serial-luncher-api.turtlecorp.fr/build/routes/groups.js:5:58)
+App 14069 output:     at processTicksAndRejections (internal/process/task_queues.js:95:5)
+App 14069 output: (Use `node --trace-warnings ...` to show where the warning was created)
+App 14069 output: (node:14069) UnhandledPromiseRejectionWarning: Unhandled promise rejection. This error originated either by throwing inside of an async function without a catch block, or by rejecting a promise which was not handled with .catch(). To terminate the node process on unhandled promise rejection, use the CLI flag `--unhandled-rejections=strict` (see https://nodejs.org/api/cli.html#cli_unhandled_rejections_mode). (rejection id: 1)
+App 14069 output: (node:14069) [DEP0018] DeprecationWarning: Unhandled promise rejections are deprecated. In the future, promise rejections that are not handled will terminate the Node.js process with a non-zero exit code.
+App 14069 output: (node:14069) UnhandledPromiseRejectionWarning: TypeError: Cannot read property 'image' of undefined
+App 14069 output:     at /home/fuje2936/serial-luncher-api.turtlecorp.fr/build/routes/groups.js:134:68
+App 14069 output:     at step (/home/fuje2936/serial-luncher-api.turtlecorp.fr/build/routes/groups.js:33:23)
+App 14069 output:     at Object.next (/home/fuje2936/serial-luncher-api.turtlecorp.fr/build/routes/groups.js:14:53)
+App 14069 output:     at fulfilled (/home/fuje2936/serial-luncher-api.turtlecorp.fr/build/routes/groups.js:5:58)
+App 14069 output:     at processTicksAndRejections (internal/process/task_queues.js:95:5)
+App 14069 output: (node:14069) UnhandledPromiseRejectionWarning: Unhandled promise rejection. This error originated either by throwing inside of an async function without a catch block, or by rejecting a promise which was not handled with .catch(). To terminate the node process on unhandled promise rejection, use the CLI flag `--unhandled-rejections=strict` (see https://nodejs.org/api/cli.html#cli_unhandled_rejections_mode). (rejection id: 2)
