@@ -13,6 +13,7 @@ import {
 } from "../utils/groups/interfaces";
 import { User } from "../utils/user/interfaces";
 import { Place } from "../utils/places/interfaces";
+import { NotificationDb } from "../utils/notifications/interfaces";
 
 const env = require("dotenv").config();
 
@@ -31,16 +32,25 @@ const notifications = (app: any) => {
           .json(returnCode.missingParameters.payload);
       }
       try {
-        const response: MySQLResponse = await db.queryParams(
-          "INSERT INTO Notifications (token, platform, user) VALUES (?, ?, ?)",
-          [token, platform, user.id]
+        // Check if token already exists
+        const tokenDb: NotificationDb[] = await db.queryParams(
+          "SELECT * FROM Notifications WHERE token = ? AND user = ?",
+          [token, user.id]
         );
-        if (response.affectedRows === 1) {
-          res.sendStatus(201);
+        if (tokenDb.length > 0) {
+          res.status(200);
         } else {
-          res
-            .status(returnCode.internalError.code)
-            .json(returnCode.internalError.payload);
+          const response: MySQLResponse = await db.queryParams(
+            "INSERT INTO Notifications (token, platform, user) VALUES (?, ?, ?)",
+            [token, platform, user.id]
+          );
+          if (response.affectedRows === 1) {
+            res.sendStatus(201);
+          } else {
+            res
+              .status(returnCode.internalError.code)
+              .json(returnCode.internalError.payload);
+          }
         }
       } catch (error) {
         console.log(error);
