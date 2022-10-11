@@ -32,7 +32,7 @@ const places = (app: any) => {
       url,
     } = req.body;
     if (
-      !country_speciality ||
+      typeof country_speciality !== "number" ||
       !lat ||
       !lng ||
       !name ||
@@ -42,7 +42,15 @@ const places = (app: any) => {
     ) {
       res.status(returnCode.missingParameters.code).json({
         payload: returnCode.missingParameters.payload,
-        body: req.body,
+        parameters: {
+          country_speciality: typeof country_speciality !== "number",
+          lat: !lat,
+          lng: !lng,
+          name: !name,
+          rating: !rating,
+          price_range: !price_range,
+          can_bring_reusable_content: typeof can_bring_reusable_content,
+        },
       });
     } else {
       // Get the group from the user
