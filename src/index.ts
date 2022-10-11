@@ -28,6 +28,10 @@ app.get("/", function (req: Request, res: Response) {
   res.status(200).json({ "serial-luncher": { version: process.env.VERSION } });
 });
 
+app.get("/cgu", function (req: Request, res: Response) {
+  res.sendFile(path.join(__dirname, "cgu.html"));
+});
+
 const routes = getRoutes();
 routes.forEach((route: string) => {
   import("./routes/" + route).then((r: any) => {
