@@ -49,14 +49,12 @@ const notifications = (app: any) => {
           } else {
             res
               .status(returnCode.internalError.code)
-              .json(returnCode.internalError.payload);
+              .json([returnCode.internalError.payload, response]);
           }
         }
       } catch (error) {
         console.log(error);
-        res
-          .status(returnCode.internalError.code)
-          .json(returnCode.internalError.payload);
+        res.status(returnCode.internalError.code).json(error);
       }
     }
   );
