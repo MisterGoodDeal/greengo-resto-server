@@ -55,7 +55,7 @@ const toStringRecord = (obj: Record<string, any>): Record<string, string> => {
 
 const getUsersTokens = async (id: number): Promise<string[]> => {
   const tokensDb: NotificationDb[] = await db.queryParams(
-    "SELECT * FROM Notifications WHERE iuserd = ?",
+    "SELECT * FROM Notifications WHERE user = ?",
     [id]
   );
   return tokensDb.map((t) => t.token);
