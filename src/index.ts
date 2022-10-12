@@ -2,6 +2,8 @@ import { getRoutes } from "./services/routes";
 import { webServices } from "./services/web";
 import { Request, Response } from "express";
 import path from "path";
+import { initializeFirebase } from "./services/firebase.service";
+import { notification } from "./services/fcm.service";
 
 const env = require("dotenv").config();
 
@@ -38,5 +40,6 @@ routes.forEach((route: string) => {
     r.default(app);
   });
 });
+initializeFirebase();
 
 webServices({ app: app, usingHttps: false, httpsDomain: "" });
