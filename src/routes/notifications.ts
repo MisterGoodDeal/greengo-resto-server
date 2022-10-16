@@ -38,14 +38,14 @@ const notifications = (app: any) => {
           [token, user.id]
         );
         if (tokenDb.length > 0) {
-          res.status(200);
+          res.status(200).json({ added: false, alreadyExists: true });
         } else {
           const response: MySQLResponse = await db.queryParams(
             "INSERT INTO Notifications (token, platform, user) VALUES (?, ?, ?)",
             [token, platform, user.id]
           );
           if (response.affectedRows === 1) {
-            res.sendStatus(201);
+            res.sendStatus(201).json({ added: true, alreadyExists: false });
           } else {
             res
               .status(returnCode.internalError.code)
