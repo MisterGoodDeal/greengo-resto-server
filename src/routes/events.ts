@@ -22,6 +22,7 @@ const events = (app: any) => {
   // Create an event
   app.post("/event", auth, async (req: Request, res: Response) => {
     const { group, place, date } = req.body as EventInsert;
+
     // @ts-ignore
     const user: JWTProps = req.user;
     if (!group || !place || !date) {
@@ -31,7 +32,7 @@ const events = (app: any) => {
     } else {
       try {
         const response: MySQLResponse = await db.queryParams(
-          "INSERT INTO LunchEvents (creator, group, place, date) VALUES (?, ?, ?, ?)",
+          "INSERT INTO `LunchEvents` (`creator`, `group`, `place`, `date`) VALUES (?, ?, ?, ?);",
           [user.id, group, place, date]
         );
         if (response.affectedRows === 1) {
@@ -49,7 +50,7 @@ const events = (app: any) => {
               );
             // Get the place
             const placeDb: Place[] = await db.queryParams(
-              "SELECT * FROM Places WHERE id = ?",
+              "SELECT * FROM LunchPlaces WHERE id = ?",
               [place]
             );
             const notificationPayload: EventNotificationPayload = {
@@ -75,7 +76,7 @@ const events = (app: any) => {
             });
 
             res
-              .sendStatus(eventsReturnCodes.created.code)
+              .status(eventsReturnCodes.created.code)
               .json(eventsReturnCodes.created.payload);
           } else {
             res
