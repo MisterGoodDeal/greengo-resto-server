@@ -53,25 +53,35 @@ const events = (app: any) => {
               "SELECT * FROM LunchPlaces WHERE id = ?",
               [place]
             );
-            const notificationPayload: EventNotificationPayload = {
-              creator: {
-                id: user.id,
-                firstname: user.firstname,
-                lastname: user.lastname,
-              },
-              place: {
-                id: placeDb[0].id,
-                name: placeDb[0].name,
-                image: placeDb[0].image,
-              },
-              date: new Date(date),
-            };
             usersGroupsAssoc.forEach(async (assoc) => {
-              const tokens = await notification.getTokens(assoc.fk_user);
-              notification.send(tokens, {
-                title: "new_event",
-                body: JSON.stringify(notificationPayload),
-                extra: JSON.stringify(notificationPayload),
+              const notificationsDb = await notification.getTokens(
+                assoc.fk_user
+              );
+              notificationsDb.map((ndb) => {
+                const eventNotification = generateEventNotification({
+                  lang: ndb.lang,
+                  firstname: user.firstname,
+                  restaurantName: placeDb[0].name,
+                  date,
+                });
+                notification.send([ndb.token], {
+                  title: eventNotification.title,
+                  body: eventNotification.body,
+                  extra: JSON.stringify({
+                    type: "new_event",
+                    creator: {
+                      id: user.id,
+                      firstname: user.firstname,
+                      lastname: user.lastname,
+                    },
+                    place: {
+                      id: placeDb[0].id,
+                      name: placeDb[0].name,
+                      image: placeDb[0].image,
+                    },
+                    date: new Date(date),
+                  }),
+                });
               });
             });
 
@@ -251,6 +261,37 @@ const events = (app: any) => {
       res.status(returnCode.internalError.code).json(error);
     }
   });
+};
+
+const generateEventNotification = (params: {
+  lang: string;
+  firstname: string;
+  restaurantName: string;
+  date: Date;
+}) => {
+  switch (params.lang) {
+    case "fr":
+      return {
+        title: `${params.firstname} vous invite à un événement 🍽️`,
+        body: `${params.firstname} vous invite à le rejoindre chez « ${
+          params.restaurantName
+        } » le ${new Date(params.date).toLocaleString("fr-FR")}`,
+      };
+    case "en":
+      return {
+        title: `${params.firstname} invites you to an event 🍽️`,
+        body: `${params.firstname} invites you to join him at « ${
+          params.restaurantName
+        } » on ${new Date(params.date).toLocaleString("en-US")}`,
+      };
+    default:
+      return {
+        title: `${params.firstname} invites you to an event 🍽️`,
+        body: `${params.firstname} invites you to join him at « ${
+          params.restaurantName
+        } » on ${new Date(params.date).toLocaleString("en-US")}`,
+      };
+  }
 };
 
 export default events;

@@ -23,10 +23,10 @@ const notifications = (app: any) => {
     "/notifications/token",
     auth,
     async (req: Request, res: Response) => {
-      const { token, platform } = req.body;
+      const { token, platform, lang } = req.body;
       // @ts-ignore
       const user: JWTProps = req.user;
-      if (!token) {
+      if (!token || !platform || !lang) {
         res
           .status(returnCode.missingParameters.code)
           .json(returnCode.missingParameters.payload);
@@ -41,8 +41,8 @@ const notifications = (app: any) => {
           res.status(200).json({ added: false, alreadyExists: true });
         } else {
           const response: MySQLResponse = await db.queryParams(
-            "INSERT INTO Notifications (token, platform, user) VALUES (?, ?, ?)",
-            [token, platform, user.id]
+            "INSERT INTO Notifications (token, platform, user, lang) VALUES (?, ?, ?, ?)",
+            [token, platform, user.id, lang]
           );
           if (response.affectedRows === 1) {
             res.sendStatus(201).json({ added: true, alreadyExists: false });

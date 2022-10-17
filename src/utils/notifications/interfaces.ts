@@ -3,4 +3,5 @@ export interface NotificationDb {
   token: string;
   platform: "ios" | "android";
   user: number;
+  lang: string;
 }
