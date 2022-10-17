@@ -6,7 +6,3 @@ PassengerAppType node
 PassengerStartupFile /home/fuje2936/serial-luncher-api.turtlecorp.fr/build/serial-launcher-server.js
 PassengerAppLogFile "/home/fuje2936/serial-luncher-api.turtlecorp.fr/logs.txt"
 # DO NOT REMOVE. CLOUDLINUX PASSENGER CONFIGURATION END
-# DO NOT REMOVE OR MODIFY. CLOUDLINUX ENV VARS CONFIGURATION BEGIN
-<IfModule Litespeed>
-</IfModule>
-# DO NOT REMOVE OR MODIFY. CLOUDLINUX ENV VARS CONFIGURATION END

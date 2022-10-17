@@ -127,7 +127,7 @@ const events = (app: any) => {
         );
         if (assocResponse.affectedRows > 0 && response.affectedRows === 1) {
           res
-            .sendStatus(eventsReturnCodes.deleteSuccess.code)
+            .status(eventsReturnCodes.deleteSuccess.code)
             .json(eventsReturnCodes.deleteSuccess.payload);
         } else {
           res
@@ -158,7 +158,7 @@ const events = (app: any) => {
         );
         if (response.affectedRows === 1) {
           res
-            .sendStatus(eventsReturnCodes.joinSuccess.code)
+            .status(eventsReturnCodes.joinSuccess.code)
             .json(eventsReturnCodes.joinSuccess.payload);
         } else {
           res
@@ -189,7 +189,7 @@ const events = (app: any) => {
         );
         if (response.affectedRows === 1) {
           res
-            .sendStatus(eventsReturnCodes.leaveSuccess.code)
+            .status(eventsReturnCodes.leaveSuccess.code)
             .json(eventsReturnCodes.leaveSuccess.payload);
         } else {
           res
@@ -208,9 +208,14 @@ const events = (app: any) => {
     // @ts-ignore
     const user: JWTProps = req.user;
     try {
-      const response: EventDb[] = await db.queryParams(
-        "SELECT * FROM LunchEvents WHERE group IN (SELECT `fk_lunch_group` FROM UsersLauchGroupsAssoc WHERE fk_user = ?) WHERE LunchEvents.deleted_at IS NOT NULL",
+      // Get user's group
+      const groups: { fk_lunch_group: number }[] = await db.queryParams(
+        "SELECT fk_lunch_group FROM UsersLauchGroupsAssoc WHERE fk_user = ?",
         [user.id]
+      );
+      const response: EventDb[] = await db.queryParams(
+        "SELECT * FROM LunchEvents WHERE LunchEvents.deleted_at IS NULL AND LunchEvents.`group` = ?",
+        [groups[0].fk_lunch_group]
       );
       const formattedEvents: FormattedEvent[] = [];
       for (const event of response) {
@@ -218,15 +223,12 @@ const events = (app: any) => {
           "SELECT * FROM Users WHERE id IN (SELECT user FROM EventsUsersAssoc WHERE event = ?)",
           [event.id]
         );
-        const place: Place = await db.queryParams(
+        const placeFetched: Place[] = await db.queryParams(
           "SELECT * FROM LunchPlaces WHERE id = ?",
           [event.place]
         );
 
         const formattedUsers: Partial<User>[] = [];
-        const groupCreator: User = formattedUsers.find(
-          (user) => user.id === event.creator
-        ) as User;
         for (const user of users) {
           formattedUsers.push({
             id: user.id,
@@ -235,25 +237,36 @@ const events = (app: any) => {
             profile_picture: user.profile_picture,
           });
         }
+        console.log("formattedUsers", formattedUsers);
 
-        formattedEvents.push({
+        const groupCreator: User[] = await db.queryParams(
+          "SELECT * FROM Users WHERE id = ?",
+          [event.creator]
+        );
+        console.log("groupCreator => ", groupCreator);
+
+        const formattedEvent: FormattedEvent = {
           id: event.id,
           creator: {
-            id: groupCreator.id,
-            firstname: groupCreator.firstname,
-            lastname: groupCreator.lastname,
-            profile_picture: groupCreator.profile_picture,
+            id: groupCreator[0].id,
+            firstname: groupCreator[0].firstname,
+            lastname: groupCreator[0].lastname,
+            profile_picture: groupCreator[0].profile_picture,
           },
           place: {
-            id: place.id,
-            name: place.name,
-            image: place.image,
+            id: placeFetched[0].id,
+            name: placeFetched[0].name,
+            image: placeFetched[0].image,
+            // @ts-ignore
+            fk_country_speciality: placeFetched[0].fk_country_speciality,
           },
           date: event.date,
           participants: formattedUsers,
           created_at: event.created_at,
           updated_at: event.updated_at,
-        });
+        };
+
+        formattedEvents.push(formattedEvent);
       }
       res.status(200).json(formattedEvents);
     } catch (error) {
