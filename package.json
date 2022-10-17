@@ -18,6 +18,8 @@
   "dependencies": {
     "@types/mysql": "^2.15.18",
     "bcrypt": "^5.0.1",
+    "capture-console": "^1.0.1",
+    "discord-webhook-node": "^1.1.8",
     "express": "^4.17.1",
     "fetch": "^1.1.0",
     "firebase-admin": "^11.1.0",

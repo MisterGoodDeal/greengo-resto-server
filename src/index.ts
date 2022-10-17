@@ -4,6 +4,7 @@ import { Request, Response } from "express";
 import path from "path";
 import { initializeFirebase } from "./services/firebase.service";
 import { notification } from "./services/fcm.service";
+import { logger } from "./services/logger.service";
 
 const env = require("dotenv").config();
 
@@ -12,6 +13,8 @@ const bodyParser = require("body-parser");
 const app = express();
 
 var favicon = require("serve-favicon");
+
+logger.console();
 
 app.use(express.static(__dirname, { dotfiles: "allow" }));
 app.use(bodyParser.urlencoded({ limit: "50mb", extended: true }));
