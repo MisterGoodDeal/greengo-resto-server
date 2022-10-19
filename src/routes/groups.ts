@@ -98,6 +98,8 @@ const groups = (app: any) => {
             price_range: p.price_range,
             image: p.image,
             can_bring_reusable_contents: p.can_bring_reusable_contents,
+            lat: p.lat,
+            lng: p.lng,
             creator: {
               id: creator[0].id,
               firstname: creator[0].firstname,

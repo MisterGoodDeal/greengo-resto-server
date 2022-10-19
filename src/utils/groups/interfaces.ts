@@ -30,6 +30,8 @@ export interface GroupInfo {
     rating: number;
     price_range: number;
     image: string;
+    lat: number;
+    lng: number;
     can_bring_reusable_contents: boolean;
     creator: Partial<User>;
     created_at: string;

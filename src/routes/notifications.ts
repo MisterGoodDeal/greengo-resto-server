@@ -45,7 +45,7 @@ const notifications = (app: any) => {
             [token, platform, user.id, lang]
           );
           if (response.affectedRows === 1) {
-            res.sendStatus(201).json({ added: true, alreadyExists: false });
+            res.status(201).json({ added: true, alreadyExists: false });
           } else {
             res
               .status(returnCode.internalError.code)
@@ -72,7 +72,7 @@ const notifications = (app: any) => {
           [user.id]
         );
         if (response.affectedRows >= 1) {
-          res.sendStatus(200);
+          res.status(200);
         } else {
           res
             .status(returnCode.internalError.code)
