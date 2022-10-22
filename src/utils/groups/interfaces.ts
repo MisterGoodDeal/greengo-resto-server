@@ -17,6 +17,13 @@ export interface UserGroupAssociation {
   fk_lunch_group: number;
 }
 
+export interface MultipleUserGroupAssociation {
+  id: number;
+  fk_user: number;
+  fk_lunch_group: number;
+  created_at: Date;
+}
+
 export interface GroupInfo {
   group: Partial<Group> & { creator: Partial<User> };
   users: {

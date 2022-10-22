@@ -9,6 +9,7 @@ import { generateGroupKey } from "../utils/groups/utils";
 import {
   Group,
   GroupInfo,
+  MultipleUserGroupAssociation,
   UserGroupAssociation,
 } from "../utils/groups/interfaces";
 import { User } from "../utils/user/interfaces";
@@ -149,6 +150,10 @@ const groups = (app: any) => {
           "INSERT INTO UsersLauchGroupsAssoc (fk_user, fk_lunch_group) VALUES (?, ?)",
           [user.id, newGroup[0].id]
         );
+        await db.queryParams(
+          "INSERT INTO MultipleLunchGroupAssoc (fk_user, fk_lunch_group) VALUES (?, ?)",
+          [user.id, newGroup[0].id]
+        );
         if (userGroupAssociation.affectedRows > 0) {
           res.status(200).json(newGroup[0]);
         } else {
@@ -195,6 +200,19 @@ const groups = (app: any) => {
             "INSERT INTO UsersLauchGroupsAssoc (fk_user, fk_lunch_group) VALUES (?, ?)",
             [user.id, group[0].id]
           );
+          // If user and group are not in MultipleLunchGroupAssoc
+          const assocResult2: MultipleUserGroupAssociation[] =
+            await db.queryParams(
+              "SELECT * FROM `MultipleLunchGroupAssoc` WHERE `fk_user` = ? AND `fk_lunch_group` = ?",
+              [user.id, group[0].id]
+            );
+          if (assocResult2.length === 0) {
+            await db.queryParams(
+              "INSERT INTO MultipleLunchGroupAssoc (fk_user, fk_lunch_group) VALUES (?, ?)",
+              [user.id, group[0].id]
+            );
+          }
+
           if (assocResult.affectedRows > 0) {
             res.status(200).json(group);
           } else {
@@ -216,6 +234,7 @@ const groups = (app: any) => {
       const user = req.user;
 
       const { group_id } = req.params;
+      const { softLeave } = req.body;
       const assoc: UserGroupAssociation[] = await db.queryParams(
         "SELECT * FROM UsersLauchGroupsAssoc WHERE fk_user = ? AND fk_lunch_group = ?",
         [user.id, group_id]
@@ -229,6 +248,12 @@ const groups = (app: any) => {
           "DELETE FROM UsersLauchGroupsAssoc WHERE fk_user = ? AND fk_lunch_group = ?",
           [user.id, group_id]
         );
+        if (softLeave === false) {
+          await db.queryParams(
+            "DELETE FROM MultipleLunchGroupAssoc WHERE fk_user = ? AND fk_lunch_group = ?",
+            [user.id, group_id]
+          );
+        }
         if (assocResult.affectedRows > 0) {
           res
             .status(groupReturnCode.groupLeaved.code)
@@ -299,6 +324,35 @@ const groups = (app: any) => {
       }
     }
   );
+
+  // Get all groups
+  app.get("/groups", auth, async function (req: Request, res: Response) {
+    // @ts-ignore
+    const user = req.user;
+    console.log(`Getting all groups info from user ${user.id}`);
+
+    const groupsAssoc: MultipleUserGroupAssociation[] = await db.queryParams(
+      "SELECT * FROM MultipleLunchGroupAssoc WHERE fk_user = ?",
+      [user.id]
+    );
+
+    const formattedGroupsAssoc: Partial<Group>[] = [];
+    // Get all groups
+    for (const ga of groupsAssoc) {
+      const group: Group[] = await db.queryParams(
+        "SELECT * FROM LunchGroups WHERE id = ?",
+        [ga.fk_lunch_group]
+      );
+      formattedGroupsAssoc.push({
+        id: group[0].id,
+        group_key: group[0].group_key,
+        name: group[0].name,
+        image: group[0].image,
+      });
+    }
+
+    res.status(200).json(formattedGroupsAssoc);
+  });
 };
 
 export default groups;
