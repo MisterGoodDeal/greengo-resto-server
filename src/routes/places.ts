@@ -2,6 +2,7 @@ import { Request, Response } from "express";
 import { db } from "../db";
 import { images } from "../helpers/images.helpers";
 import { auth } from "../middleware/auth";
+import { geoapify, RoutePlannerResponse } from "../services/geoapify.service";
 import { Group, UserGroupAssociation } from "../utils/groups/interfaces";
 import { groupReturnCode } from "../utils/groups/returnCodes";
 import { MySQLResponse, JWTProps } from "../utils/interfaces";
@@ -409,6 +410,58 @@ const places = (app: any) => {
           res
             .status(returnCode.internalError.code)
             .json(returnCode.internalError.payload);
+        }
+      }
+    }
+  );
+
+  // Route planner to place
+  app.post(
+    "/place/:id/route",
+    auth,
+    async function (req: Request, res: Response) {
+      const { id } = req.params;
+      const { startLat, startLng } = req.body;
+      const user = req.body.user;
+      console.log("Route planning request by ", user);
+
+      const place: Place[] = await db.queryParams(
+        "SELECT * FROM LunchPlaces WHERE id = ?",
+        [id]
+      );
+      if (place.length === 0) {
+        res
+          .status(placesReturnCode.placeNotFound.code)
+          .json(placesReturnCode.placeNotFound.payload);
+      } else {
+        const placeLat = place[0].lat;
+        const placeLng = place[0].lng;
+        try {
+          const route = await geoapify.planner({
+            startLat,
+            startLng,
+            endLat: placeLat,
+            endLng: placeLng,
+          });
+          const coordinates = route.features[0].geometry.coordinates[0];
+          const distance = route.features[0].properties.distance;
+          const time = route.features[0].properties.time;
+          const formattedCoordinates = coordinates.map(
+            (coordinate: number[]) => {
+              return {
+                latitude: coordinate[1],
+                longitude: coordinate[0],
+              };
+            }
+          );
+          const response: RoutePlannerResponse = {
+            distance,
+            time: Math.round(time / 60),
+            polyline: formattedCoordinates,
+          };
+          res.status(200).json(response);
+        } catch (error) {
+          res.status(400).json({ error });
         }
       }
     }

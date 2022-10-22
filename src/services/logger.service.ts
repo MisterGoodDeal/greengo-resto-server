@@ -15,14 +15,23 @@ const consoleInterceptor = async () => {
   });
 };
 
-const sendWebhook = (params: { message: string; type: "normal" | "error" }) => {
+const sendWebhook = (params: {
+  message: string;
+  type: "normal" | "error" | "warning";
+}) => {
   const embed = new MessageBuilder();
   embed
     .setTitle(`Log level: ${params.type}`)
     .setAuthor("Serial Luncher", "https://i.imgur.com/uRcbhRu.png")
     .setDescription(params.message)
     // green hex color
-    .setColor(params.type === "normal" ? "#00ff00" : "#ff0000")
+    .setColor(
+      params.type === "normal"
+        ? "#00bf33"
+        : params.type === "warning"
+        ? "#ff8800"
+        : "#ff0000"
+    )
     .setFooter(`serial-luncher-server v${process.env.VERSION}`)
     .setTimestamp();
   hook.send(embed);
