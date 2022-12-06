@@ -11,10 +11,10 @@ export const generateToken = (jwtProps: JWTProps): string => {
       email: jwtProps.email,
       profile_picture: jwtProps.profile_picture,
     },
-    process.env.JWT_SECRET,
-    {
-      expiresIn: process.env.JWT_EXPIRATION,
-    }
+    process.env.JWT_SECRET
+    // {
+    //   expiresIn: process.env.JWT_EXPIRATION,
+    // }
   );
   return token;
 };
