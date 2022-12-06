@@ -2,6 +2,7 @@ import { Request, Response } from "express";
 import { db } from "../db";
 import { images } from "../helpers/images.helpers";
 import { auth } from "../middleware/auth";
+import { notification } from "../services/fcm.service";
 import { geoapify, RoutePlannerResponse } from "../services/geoapify.service";
 import { Group, UserGroupAssociation } from "../utils/groups/interfaces";
 import { groupReturnCode } from "../utils/groups/returnCodes";
@@ -96,10 +97,46 @@ const places = (app: any) => {
           ]
         );
         if (place.affectedRows > 0) {
-          const newPlace = await db.queryParams(
+          const newPlace: Place[] = await db.queryParams(
             "SELECT * FROM LunchPlaces WHERE id = ?",
             [place.insertId]
           );
+          // Send notification when new place is added
+          const usersGroupsAssoc: { fk_user: number }[] = await db.queryParams(
+            "SELECT * FROM UsersLauchGroupsAssoc WHERE fk_lunch_group = ?",
+            [groupAssoc[0].fk_lunch_group]
+          );
+
+          // Send notification to all users in the group
+          usersGroupsAssoc.forEach(async (assoc) => {
+            const notificationsDb = await notification.getTokens(assoc.fk_user);
+            notificationsDb.map((ndb) => {
+              const eventNotification = generateAddPlaceNotification({
+                lang: ndb.lang,
+                firstname: user.firstname,
+                restaurantName: newPlace[0].name,
+              });
+              notification.send([ndb.token], {
+                title: eventNotification.title,
+                body: eventNotification.body,
+                extra: JSON.stringify({
+                  type: "new_place",
+                  creator: {
+                    id: user.id,
+                    firstname: user.firstname,
+                    lastname: user.lastname,
+                  },
+                  place: {
+                    id: newPlace[0].id,
+                    name: newPlace[0].name,
+                    lat: newPlace[0].lat,
+                    lng: newPlace[0].lng,
+                  },
+                }),
+              });
+            });
+          });
+
           res.status(200).json(newPlace[0]);
         }
       }
@@ -466,6 +503,30 @@ const places = (app: any) => {
       }
     }
   );
+};
+
+const generateAddPlaceNotification = (params: {
+  lang: string;
+  firstname: string;
+  restaurantName: string;
+}) => {
+  switch (params.lang) {
+    case "fr":
+      return {
+        title: `Nouveau restaurant 🍽️`,
+        body: `${params.firstname} a ajouté le restaurant « ${params.restaurantName} »`,
+      };
+    case "en":
+      return {
+        title: `New restaurant 🍽️`,
+        body: `${params.firstname} just added a new restaurant « ${params.restaurantName} » `,
+      };
+    default:
+      return {
+        title: `New restaurant 🍽️`,
+        body: `${params.firstname} just added a new restaurant « ${params.restaurantName} »`,
+      };
+  }
 };
 
 export default places;
