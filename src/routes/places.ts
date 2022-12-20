@@ -510,7 +510,7 @@ const places = (app: any) => {
       }
     }
   );
-  
+
   app.post("/rating", auth, async function (req: Request, res: Response) {
     const { userId, restaurantId, rating } = req.body;
     try {
@@ -536,6 +536,7 @@ const places = (app: any) => {
         error,
       });
     }
+  });
 
   // Get specilities
   app.get("/specialties", auth, async function (req: Request, res: Response) {
