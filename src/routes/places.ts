@@ -11,6 +11,7 @@ import {
   Comment,
   Favorite,
   Place,
+  Speciality,
   StuffedPlace,
 } from "../utils/places/interfaces";
 import { placesReturnCode } from "../utils/places/returnCodes";
@@ -509,6 +510,7 @@ const places = (app: any) => {
       }
     }
   );
+  
   app.post("/rating", auth, async function (req: Request, res: Response) {
     const { userId, restaurantId, rating } = req.body;
     try {
@@ -534,6 +536,13 @@ const places = (app: any) => {
         error,
       });
     }
+
+  // Get specilities
+  app.get("/specialties", auth, async function (req: Request, res: Response) {
+    const specialties: Speciality[] = await db.query(
+      "SELECT * FROM LunchPlaceSpecialities"
+    );
+    res.status(200).json(specialties);
   });
 };
 
