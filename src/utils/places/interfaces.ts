@@ -33,3 +33,9 @@ export interface Favorite {
   fk_user: number;
   fk_lunch_place: number;
 }
+
+export interface Speciality {
+  id: number;
+  fr: string;
+  en: string;
+}

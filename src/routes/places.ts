@@ -11,6 +11,7 @@ import {
   Comment,
   Favorite,
   Place,
+  Speciality,
   StuffedPlace,
 } from "../utils/places/interfaces";
 import { placesReturnCode } from "../utils/places/returnCodes";
@@ -503,6 +504,14 @@ const places = (app: any) => {
       }
     }
   );
+
+  // Get specilities
+  app.get("/specialties", auth, async function (req: Request, res: Response) {
+    const specialties: Speciality[] = await db.query(
+      "SELECT * FROM LunchPlaceSpecialities"
+    );
+    res.status(200).json(specialties);
+  });
 };
 
 const generateAddPlaceNotification = (params: {
