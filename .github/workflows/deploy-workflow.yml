@@ -15,7 +15,7 @@ on:
         required: true
       ssh-pk:
         required: true
-      ssh-pk-passphrase:
+      ssh-password:
         required: true
 
 jobs:
