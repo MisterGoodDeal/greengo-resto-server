@@ -19,3 +19,5 @@ jobs:
       host: ${{ secrets.HOST }}
       ssh-pk: ${{ secrets.SSH_PRIVATE_KEY }}
       ssh-password: ${{ secrets.SSH_KEY_PASSWORD }}
+      ftp-user: ${{ secrets.FTP_USER }}
+      ftp-password: ${{ secrets.FTP_PASSWORD }}

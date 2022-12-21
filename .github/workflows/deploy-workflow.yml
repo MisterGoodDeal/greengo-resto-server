@@ -17,6 +17,10 @@ on:
         required: true
       ssh-password:
         required: true
+      ftp-user:
+        required: true
+      ftp-password:
+        required: true
 
 jobs:
   deploy:
@@ -24,7 +28,7 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
-    - name: Checkout the project at the commit to deploy
+    - name: 📥 Checkout the project at the commit to deploy
       uses: actions/setup-node@v3
       with:
         node-version: '14.x'
@@ -33,7 +37,15 @@ jobs:
     - run: npm install
     - run: npm run build
     - run: git log
-    - name: Install SSH Key
+    - name: 📂 SDeploy to VPS
+      uses: SamKirkland/FTP-Deploy-Action@4.3.3
+      with:
+        server: ${{ secrets.host }}
+        username: ${{ secrets.ftp_user }}
+        password: ${{ secrets.ftp_password }}
+        local-dir: ./build
+        server-dir: /serial-luncher-api.turtlecorp.fr/build
+    - name: 🔐 Install SSH Key
       uses: shimataro/ssh-key-action@v2
       with:
         key: ${{ secrets.ssh-pk }} 
