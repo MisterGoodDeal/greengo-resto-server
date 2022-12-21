@@ -37,12 +37,12 @@ jobs:
     - run: npm install
     - run: npm run build
     - run: git log
-    - name: 📂 SDeploy to VPS
+    - name: 📂 Deploy to VPS
       uses: SamKirkland/FTP-Deploy-Action@4.3.3
       with:
         server: ${{ secrets.host }}
-        username: ${{ secrets.ftp_user }}
-        password: ${{ secrets.ftp_password }}
+        username: ${{ secrets.ftp-user }}
+        password: ${{ secrets.ftp-password }}
         local-dir: ./build
         server-dir: /serial-luncher-api.turtlecorp.fr/build
     - name: 🔐 Install SSH Key
