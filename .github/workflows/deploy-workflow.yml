@@ -50,7 +50,7 @@ jobs:
       with:
         key: ${{ secrets.ssh-pk }} 
         known_hosts: ${{ secrets.host }}
-    - name: 🛑 Stop the instance
+    - name: 🖥️ Test commande SSH
       uses: appleboy/ssh-action@v0.1.6
       with:
         host: ${{ secrets.host }}
