@@ -1,7 +1,7 @@
 name: "deploy-app"
 
-on: workflow_dispatch: inputs: sha: description: "Commit SHA to deploy";
-required: true;
+on: workflow_dispatch: inputs: sha: description: "Commit SHA to deploy"
+required: true
 
 jobs:
   deploy:
