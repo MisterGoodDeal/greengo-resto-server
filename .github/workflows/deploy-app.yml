@@ -16,3 +16,7 @@ jobs:
     secrets:
       app-root: ${{ secrets.APPLICATION_ROOT }}
       cpanel-user: ${{ secrets.CPANEL_USER }}
+      host: ${{ secrets.HOST }}
+      user: ${{ secrets.USER }}
+      password: ${{ secrets.PASSWORD }}
+      port: ${{ secrets.PORT }}

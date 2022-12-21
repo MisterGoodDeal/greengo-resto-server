@@ -11,6 +11,14 @@ on:
         required: true
       cpanel-user:
         required: true
+      host:
+        required: true
+      user:
+        required: true
+      password:
+        required: true
+      port: 
+        required: true
 
 jobs:
   deploy:
@@ -20,6 +28,14 @@ jobs:
     - name: Retrieve the secret and decode it to a file
       run: |
           echo "${{ secrets.app-root }} — ${{ secrets.cpanel-user }}"
+    - name: Connect to the VPS, install app and reboot the instance
+      uses: appleboy/ssh-action@v0.1.6
+      with:
+        host: ${{ secrets.host }}
+        username: ${{ secrets.user }}
+        password: ${{ secrets.password }}
+        port: ${{ secrets.port }}
+        script: whoami
 
     # - name: Deploy NodeJS app
     #   uses: MyGreenGo/deploy-action@v1.2.9
