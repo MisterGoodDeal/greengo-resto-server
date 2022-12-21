@@ -15,6 +15,7 @@ import {
   StuffedPlace,
 } from "../utils/places/interfaces";
 import { placesReturnCode } from "../utils/places/returnCodes";
+import { Rating } from "../utils/ratings/interfaces";
 import { returnCode } from "../utils/returnCodes";
 import { User } from "../utils/user/interfaces";
 
@@ -82,7 +83,7 @@ const places = (app: any) => {
 
         // Insert the place
         const place: MySQLResponse = await db.queryParams(
-          "INSERT INTO LunchPlaces (name, fk_country_speciality, lat, lng, rating, price_range, can_bring_reusable_contents, image, fk_lunch_group, fk_user, url) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",
+          "INSERT INTO LunchPlaces (name, fk_country_speciality, lat, lng,  price_range, can_bring_reusable_contents, image, fk_lunch_group, fk_user, url) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",
           [
             name,
             country_speciality,
@@ -175,6 +176,10 @@ const places = (app: any) => {
             "SELECT * FROM LunchPlacesComments WHERE fk_lunch_place = ?",
             [place.id]
           );
+          const averageRating = await db.queryParams(
+            "SELECT AVG(rating) as rating FROM LunchPlaceRatings WHERE place = ?",
+            [place.id]
+          );
           const partialComments: Partial<Comment> & Partial<User>[] = [];
           await Promise.all(
             comments.map(async (comment: Comment) => {
@@ -195,6 +200,7 @@ const places = (app: any) => {
           ).then(() => {
             const stuffedPlace: StuffedPlace = {
               ...place,
+              rating: averageRating,
               comments: partialComments,
             };
             stuffedPlaces.push(stuffedPlace);
@@ -504,6 +510,33 @@ const places = (app: any) => {
       }
     }
   );
+
+  app.post("/rating", auth, async function (req: Request, res: Response) {
+    const { userId, restaurantId, rating } = req.body;
+    try {
+      const ratingById: Rating = await db.queryParams(
+        "SELECT * FROM LunchPlaceRatings WHERE user = ?",
+        [userId]
+      );
+      if (ratingById.id) {
+        res
+          .status(200)
+          .json(`The user with id: ${userId} has already rate this place.`);
+      } else {
+        const response: MySQLResponse = await db.queryParams(
+          "INSERT INTO LunchPlaceRatings (place, user, rating) VALUES (?, ?, ?)",
+          [restaurantId, userId, rating]
+        );
+        if (response.affectedRows > 0) {
+          res.status(200).json(response);
+        }
+      }
+    } catch (error) {
+      res.status(400).json({
+        error,
+      });
+    }
+  });
 
   // Get specilities
   app.get("/specialties", auth, async function (req: Request, res: Response) {
