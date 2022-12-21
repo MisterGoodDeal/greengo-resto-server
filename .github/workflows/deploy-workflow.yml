@@ -13,11 +13,7 @@ on:
         required: true
       host:
         required: true
-      user:
-        required: true
-      password:
-        required: true
-      port: 
+      ssh-pk:
         required: true
 
 jobs:
@@ -25,26 +21,17 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Retrieve the secret and decode it to a file
-      run: |
-          echo "${{ secrets.app-root }} — ${{ secrets.cpanel-user }}"
-    - name: Connect to the VPS, install app and reboot the instance
+    - name: Install SSH Key
+      uses: shimataro/ssh-key-action@v2
+      with:
+        key: ${{ secrets.ssh-pk }} 
+        known_hosts: ${{ secrets.host }}
+    - name: Stop the instance
       uses: appleboy/ssh-action@v0.1.6
       with:
         host: ${{ secrets.host }}
-        username: ${{ secrets.user }}
-        password: ${{ secrets.password }}
-        port: ${{ secrets.port }}
+        username: ${{ secrets.cpanel-user }}
+        port: 22
         script: whoami
-
-    # - name: Deploy NodeJS app
-    #   uses: MyGreenGo/deploy-action@v1.2.9
-    #   with:
-    #     aws-secret-access-key:  ${{ secrets.aws-secret-access-key }}
-    #     aws-secret-key-id:      ${{ secrets.aws-secret-key-id }}
-    #     arn-target-group:       ${{ secrets.arn-target-group }}
-    #     sha:                    ${{ inputs.sha_to_deploy }}
-
-    #     npm-token: ${{ secrets.npm-token }}
-    #     command: "set -e && cd ~/projects/greengo-restaurateur-api && git fetch && git checkout {{SHA}} -f && npm install -g npm-cli-login && npm-cli-login -u mygreengo-admin -p {{INPUT_NPM_TOKEN}} -e admin@mygreengo.com -r https://npm.pkg.github.com && npm ci && npm run build && npm run serve"
-    #     path: ${{ github.workspace }}
+    # - name: Deploy with rsync
+    #     run: rsync -avz ./dist/ ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:/home/zellwk/zellwk.com/dist/
