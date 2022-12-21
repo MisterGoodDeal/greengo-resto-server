@@ -50,14 +50,14 @@ jobs:
       with:
         key: ${{ secrets.ssh-pk }} 
         known_hosts: ${{ secrets.host }}
-    # - name: Stop the instance
-    #   uses: appleboy/ssh-action@v0.1.6
-    #   with:
-    #     host: ${{ secrets.host }}
-    #     username: ${{ secrets.cpanel-user }}
-    #     key: ${{ secrets.ssh-pk }}
-    #     passphrase: ${{ secrets.ssh-password }}
-    #     port: 22
-    #     script: whoami
+    - name: 🛑 Stop the instance
+      uses: appleboy/ssh-action@v0.1.6
+      with:
+        host: ${{ secrets.host }}
+        username: ${{ secrets.cpanel-user }}
+        key: ${{ secrets.ssh-pk }}
+        passphrase: ${{ secrets.ssh-password }}
+        port: 22
+        script: whoami
     # - name: Deploy with rsync
     #     run: rsync -avz ./dist/ ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:/home/zellwk/zellwk.com/dist/
