@@ -23,19 +23,28 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+    - uses: actions/checkout@v3
+    - name: Checkout the project at the commit to deploy
+      uses: actions/setup-node@v3
+      with:
+        node-version: '14.x'
+        cache: 'npm'
+    - run: git checkout ${{ github.event.inputs.sha_to_deploy }}
+    - run: npm install
+    - run: npm run build
     - name: Install SSH Key
       uses: shimataro/ssh-key-action@v2
       with:
         key: ${{ secrets.ssh-pk }} 
         known_hosts: ${{ secrets.host }}
-    - name: Stop the instance
-      uses: appleboy/ssh-action@v0.1.6
-      with:
-        host: ${{ secrets.host }}
-        username: ${{ secrets.cpanel-user }}
-        key: ${{ secrets.ssh-pk }}
-        passphrase: ${{ secrets.ssh-password }}
-        port: 22
-        script: whoami
+    # - name: Stop the instance
+    #   uses: appleboy/ssh-action@v0.1.6
+    #   with:
+    #     host: ${{ secrets.host }}
+    #     username: ${{ secrets.cpanel-user }}
+    #     key: ${{ secrets.ssh-pk }}
+    #     passphrase: ${{ secrets.ssh-password }}
+    #     port: 22
+    #     script: whoami
     # - name: Deploy with rsync
     #     run: rsync -avz ./dist/ ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:/home/zellwk/zellwk.com/dist/
