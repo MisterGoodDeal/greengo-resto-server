@@ -29,11 +29,10 @@ jobs:
       with:
         node-version: '14.x'
         cache: 'npm'
-    - run: ls -la
     - run: git checkout ${{ inputs.sha_to_deploy }} -f
     - run: npm install
     - run: npm run build
-    - run: ls -la
+    - run: git log
     - name: Install SSH Key
       uses: shimataro/ssh-key-action@v2
       with:
