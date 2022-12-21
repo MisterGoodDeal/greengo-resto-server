@@ -33,7 +33,7 @@ jobs:
       with:
         node-version: '14.x'
         cache: 'npm'
-    - run: git checkout ${{ inputs.sha_to_deploy }} -f
+    - run: git reset --hard ${{ inputs.sha_to_deploy }} 
     - run: npm install
     - run: npm run build
     - run: git log
