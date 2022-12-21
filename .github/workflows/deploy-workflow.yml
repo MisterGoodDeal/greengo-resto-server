@@ -56,6 +56,7 @@ jobs:
         host: ${{ secrets.host }}
         username: ${{ secrets.cpanel-user }}
         password: ${{ secrets.ssh-password }}
+        debug: true
         #key: ${{ secrets.ssh-pk }}
         #passphrase: ${{ secrets.ssh-password }}
         port: 22
