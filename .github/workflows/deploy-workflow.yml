@@ -43,7 +43,7 @@ jobs:
         server: ${{ secrets.host }}
         username: ${{ secrets.ftp-user }}
         password: ${{ secrets.ftp-password }}
-        local-dir: ./build
+        local-dir: ./build/
         server-dir: /serial-luncher-api.turtlecorp.fr/build
     - name: 🔐 Install SSH Key
       uses: shimataro/ssh-key-action@v2
