@@ -10,7 +10,7 @@ on:
 jobs:
   deploy:
     concurrency: deploy-app
-    uses: MyGreenGo/greengo-restaurateur-api/.github/workflows/deploy-workflow.yml@master
+    uses: MisterGoodDeal/serial-luncher-server/.github/workflows/deploy-workflow.yml@master
     with:
       sha_to_deploy: ${{ github.event.inputs.sha }}
     secrets:
