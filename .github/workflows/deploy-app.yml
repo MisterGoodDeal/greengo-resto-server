@@ -1,4 +1,14 @@
-name: deploy - app;
+name: "deploy-app";
 
 on: workflow_dispatch: inputs: sha: description: "Commit SHA to deploy";
 required: true;
+
+jobs:
+  deploy:
+    concurrency: deploy-app
+    uses: MyGreenGo/greengo-restaurateur-api/.github/workflows/deploy-workflow.yml@master
+    with:
+      sha_to_deploy: ${{ github.event.inputs.sha }}
+    secrets:
+      app-root: ${{ secrets.APPLICATION_ROOT }}
+      cpanel-user: ${{ secrets.CPANEL_USER }}
