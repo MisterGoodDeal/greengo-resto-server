@@ -18,3 +18,4 @@ jobs:
       cpanel-user: ${{ secrets.CPANEL_USER }}
       host: ${{ secrets.HOST }}
       ssh-pk: ${{ secrets.SSH_PRIVATE_KEY }}
+      ssh-pk-passphrase: ${{ secrets.SSH_KEY_PASSWORD }}
