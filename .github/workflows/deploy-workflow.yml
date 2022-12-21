@@ -55,8 +55,9 @@ jobs:
       with:
         host: ${{ secrets.host }}
         username: ${{ secrets.cpanel-user }}
-        key: ${{ secrets.ssh-pk }}
-        passphrase: ${{ secrets.ssh-password }}
+        password: ${{ secrets.ssh-password }}
+        #key: ${{ secrets.ssh-pk }}
+        #passphrase: ${{ secrets.ssh-password }}
         port: 22
         script: whoami
     # - name: Deploy with rsync
