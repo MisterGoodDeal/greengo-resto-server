@@ -16,3 +16,13 @@ Build and start the project
 ```bash
 npm start
 ```
+
+Start the app via SSH:
+```bash
+cloudlinux-selector start --json --interpreter nodejs --user fuje2936 --app-root /home/fuje2936/serial-luncher-api.turtlecorp.fr
+```
+
+Stop the app via SSH:
+```bash
+cloudlinux-selector start --json --interpreter nodejs --user fuje2936 --app-root /home/fuje2936/serial-luncher-api.turtlecorp.fr
+```
