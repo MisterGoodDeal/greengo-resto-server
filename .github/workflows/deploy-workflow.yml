@@ -45,21 +45,21 @@ jobs:
         password: ${{ secrets.ftp-password }}
         local-dir: ./build/
         server-dir: /serial-luncher-api.turtlecorp.fr/build/
-    - name: 🔐 Install SSH Key
-      uses: shimataro/ssh-key-action@v2
-      with:
-        key: ${{ secrets.ssh-pk }} 
-        known_hosts: ${{ secrets.host }}
-    - name: 🖥️ Test commande SSH
-      uses: appleboy/ssh-action@v0.1.6
-      with:
-        host: ${{ secrets.host }}
-        username: ${{ secrets.cpanel-user }}
-        password: ${{ secrets.ssh-password }}
-        debug: true
-        #key: ${{ secrets.ssh-pk }}
-        #passphrase: ${{ secrets.ssh-password }}
-        port: 22
-        script: whoami
+    # - name: 🔐 Install SSH Key
+    #   uses: shimataro/ssh-key-action@v2
+    #   with:
+    #     key: ${{ secrets.ssh-pk }} 
+    #     known_hosts: ${{ secrets.host }}
+    # - name: 🖥️ Test commande SSH
+    #   uses: appleboy/ssh-action@v0.1.6
+    #   with:
+    #     host: ${{ secrets.host }}
+    #     username: ${{ secrets.cpanel-user }}
+    #     password: ${{ secrets.ssh-password }}
+    #     debug: true
+    #     #key: ${{ secrets.ssh-pk }}
+    #     #passphrase: ${{ secrets.ssh-password }}
+    #     port: 22
+    #     script: whoami
     # - name: Deploy with rsync
     #     run: rsync -avz ./dist/ ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:/home/zellwk/zellwk.com/dist/
