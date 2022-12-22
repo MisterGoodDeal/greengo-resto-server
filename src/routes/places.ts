@@ -177,7 +177,11 @@ const places = (app: any) => {
             [place.id]
           );
           const averageRating = await db.queryParams(
-            "SELECT AVG(rating) as rating FROM LunchPlaceRatings WHERE place = ?",
+            "SELECT AVG(rating) as average FROM LunchPlaceRatings WHERE place = ?",
+            [place.id]
+          );
+          const userRated = await db.queryParams(
+            "SELECT user as userId FROM LunchPlaceRatings WHERE place = ?",
             [place.id]
           );
           const partialComments: Partial<Comment> & Partial<User>[] = [];
@@ -200,7 +204,8 @@ const places = (app: any) => {
           ).then(() => {
             const stuffedPlace: StuffedPlace = {
               ...place,
-              rating: averageRating,
+              rating: averageRating[0].average,
+              user_rated: userRated,
               comments: partialComments,
             };
             stuffedPlaces.push(stuffedPlace);

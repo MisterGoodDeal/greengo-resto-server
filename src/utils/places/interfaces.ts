@@ -7,6 +7,7 @@ export interface Place {
   lat: number;
   lng: number;
   rating: number;
+  user_rated: number[];
   price_range: number;
   can_bring_reusable_contents: boolean;
   image: string;
