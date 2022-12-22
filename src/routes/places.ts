@@ -83,10 +83,11 @@ const places = (app: any) => {
 
         // Insert the place
         const place: MySQLResponse = await db.queryParams(
-          "INSERT INTO LunchPlaces (name, fk_country_speciality, lat, lng,  price_range, can_bring_reusable_contents, image, fk_lunch_group, fk_user, url) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",
+          "INSERT INTO LunchPlaces (name, fk_country_speciality, rating, lat, lng,  price_range, can_bring_reusable_contents, image, fk_lunch_group, fk_user, url) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",
           [
             name,
             country_speciality,
+            null,
             lat,
             lng,
             rating,
